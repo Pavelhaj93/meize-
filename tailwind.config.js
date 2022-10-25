@@ -7,7 +7,28 @@ module.exports = {
         "./components/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                serif: ["Lora", "serif"],
+                sans: ["Mulish", "sans-serif"],
+                'sans-alt': ["Work Sans", "sans-serif"],
+            },
+            fontWeight: {
+                'extrabold': 1000,
+            },
+            fontSize: {
+                0: '0'
+            },
+            colors: {
+                black: '#222',
+                blue: {
+                    600: '#0027f5'
+                },
+                gray: {
+                    300: '#7d7d7d'
+                }
+            }
+        },
     },
     plugins: [
         plugin(({addVariant, e, postcss}) => {
@@ -17,7 +38,10 @@ module.exports = {
                 container.append(mediaRule);
 
                 mediaRule.walkRules(rule => {
-                    rule.selector = `.${e(`mouse-hover${separator}${rule.selector.slice(1)}`)}:hover`
+                    const ruleSelectorClear = rule.selector.slice(1) // Remove dot in the beginning of the selector
+                        .replace('\\/', '/'); // Replace \/ with /, so that PostCSS doesn't escape the slash twice
+
+                    rule.selector = `.${e(`mouse-hover${separator}${ruleSelectorClear}`)}:hover`
                 })
             })
         })

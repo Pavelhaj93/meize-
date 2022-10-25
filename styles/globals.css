@@ -2,10 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+
 html {
+    @apply antialiased;
     -webkit-tap-highlight-color: rgba(0, 0, 0, .04);
 }
 
 label[for] {
     @apply cursor-pointer;
+}
+
+.container {
+    @apply w-full;
+    @apply max-w-[1600px];
+    @apply mx-auto;
+    @apply md:px-10;
+}
+
+.first-container {
+    @apply py-10;
+    @apply md:py-16;
+}
+
+.title-big {
+    @apply uppercase;
+    @apply text-center;
+    @apply font-sans-alt;
+    @apply font-extrabold;
+    @apply tracking-tighter;
+
+    @apply text-3xl;
+    @apply leading-none;
+    @apply sm:text-4xl;
+    @apply sm:leading-none;
+    @apply lg:text-5xl;
+    @apply lg:leading-none;
+    @apply xl:text-6xl;
+    @apply xl:leading-none;
+}
+
+.title-medium {
+    @apply font-extrabold;
+    @apply uppercase;
+    @apply font-sans-alt;
+    @apply tracking-tighter;
+
+    @apply text-3xl;
+    @apply leading-none;
+    /*@apply md:text-3xl;*/
+    /*@apply md:leading-none;*/
+    @apply lg:text-4xl;
+    @apply lg:leading-none;
+    @apply xl:text-5xl;
+    @apply xl:leading-none;
 }
