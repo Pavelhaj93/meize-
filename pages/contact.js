@@ -3,15 +3,22 @@ import Container from "../components/Container";
 import {contacts, socials} from "../helpers/contacts";
 import imageHayden from "../public/images/hayden4.jpg";
 import Image from "next/image";
+import {getLocaleStrings} from "../helpers/languages";
+import {useRouter} from "next/router";
 
 export default function Contact() {
+    const lang = getLocaleStrings(useRouter().locale, 'contact');
+
     return (
-        <MainLayout theme="black" paddingTop={true}>
+        <MainLayout theme="black"
+                    paddingTop={true}
+                    title={lang.title}
+        >
             <Container className="first-container">
                 <section className="flex flex-col gap-8">
                     <header>
                         <h1 className="title-big font-[1000]">
-                            Get in Touch
+                            {lang.headline}
                         </h1>
                     </header>
                 </section>
@@ -28,7 +35,7 @@ export default function Contact() {
                     className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-0 max-w-[1000px] mx-auto">
                     <header className="flex-1">
                         <h2 className="title-medium md:leading-none">
-                            General Inquiries
+                            {lang.general}
                         </h2>
                     </header>
                     <div className="flex-1 flex flex-col items-center lg:items-start gap-2 lg:gap-4 lg:pt-6">
@@ -49,7 +56,7 @@ export default function Contact() {
                     className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-0 max-w-[1000px] mx-auto">
                     <header className="flex-1">
                         <h2 className="title-medium md:leading-none">
-                            Follow Us
+                            {lang.follow}
                         </h2>
                     </header>
                     <div className="flex-1 flex flex-col lg:flex-row items-center flex-wrap gap-4 lg:pt-6">
@@ -78,7 +85,7 @@ export default function Contact() {
                     className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-0 max-w-[1000px] mx-auto">
                     <header className="flex-1">
                         <h2 className="title-medium md:leading-none">
-                            Message Us
+                            {lang.message}
                         </h2>
                     </header>
                     <div className="flex-1 lg:pt-6">

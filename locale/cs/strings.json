@@ -1,0 +1,74 @@
+{
+  "og": {
+    "name": "Meize",
+    "title": "MEIZE - Kreativní produkční studio",
+    "description": ""
+  },
+  "common": {
+    "language": "Jazyk",
+    "ctaButton": "Ozvěte se nám",
+    "yourEmail": "Váš e-mail",
+    "subscribe": "Odebírat",
+    "seeAllWork": "Všechny projekty",
+    "previous": "Předchozí",
+    "next": "další"
+  },
+  "pages": {
+    "about": "O Nás",
+    "projects": "Projekty",
+    "contact": "Kontakt"
+  },
+  "about": {
+    "title": "O nás",
+    "headline": "<b>Meize</b> je <b>kreativní produkční studio</b>. Precizně dokážeme splnit jakýkoli požadavek a <b>máme rádi výzvy</b>.",
+    "intro": "Spolupracujeme se značkami, agenturami a platformami a vytváříme kampaně, reklamy a značkový obsah s autentičností v jádru. Náš oceněný seznam režisérů představuje novou generaci vypravěčů, kteří pracují napříč komerčními a dokumentárními žánry.",
+    "partners": "Vybraní partneři",
+    "feedback": "Řekli o nás"
+  },
+  "projects": {
+    "title": "Projekty"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "headline": "Ozvěte se nám",
+    "general": "Obecné kontakty",
+    "follow": "Sledujte nás",
+    "message": "Napište nám",
+    "form": {
+
+    }
+  },
+  "testimonials": [
+    {
+      "body": "“Díky bohu za MEIZE. Přišli jsme za nimi s krátkými termíny, napjatými rozpočty, scénáři s miminky a psy všude kolem a oni nikdy nemrkli okem. Navíc práce vždy dopadla lépe, než jsme si kdy představovali. Lidé v MEIZE jsou milí a práce, kterou dělají, je krásná. Je to skvělé kombo.”",
+      "name": "Catherine Kennedy",
+      "company": "The Martin Agency"
+    },
+    {
+      "body": "“Existují filmové štáby, které tuto práci dělají, a pak jsou štáby jako tým v MEIZE, kteří skutečně jdou nad rámec toho, aby uvedli projekt do života a odlišili jej. Nespokojí se s dost dobrým. A ke všemu jsou to jen dobří lidé.”",
+      "name": "Chasen Marshall",
+      "company": "Oakley"
+    },
+    {
+      "body": "“Skvělý příběh si zaslouží skvělého vypravěče a podle našich zkušeností je kreativní tým v MEIZE Studios přesně takový. MEIZE vám dává na dosah ty nejvášnivější a nejhnanější talenty, které zajdou do jakékoli délky, aby vaše vize proměnila ve skutečnost.”",
+      "name": "Josh Saunders",
+      "company": "Red Bull"
+    },
+    {
+      "body": "“V The North Face často potřebujeme vysoce kvalitní, kreativní úpravy s rychlým obratem a dostupnou cenou. Hledáme produkční společnosti, které dokážou nejen splnit tuto potřebu, ale jsou flexibilní, vnímavé a profesionální. MEIZE bylo vše výše uvedené a překonalo naše očekávání během tvůrčího procesu.”",
+      "name": "Blair Witte",
+      "company": "The North Face"
+    }
+  ],
+  "categories": {
+    "all": "Vše",
+    "creative": "Kreativní",
+    "commercial": "Komerční",
+    "events": "Události",
+    "photo": "Foto"
+  },
+  "languages": {
+    "en": "English",
+    "cs": "Čeština"
+  }
+}

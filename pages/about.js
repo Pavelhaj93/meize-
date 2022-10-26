@@ -8,28 +8,29 @@ import Image from "next/image";
 import haydenImage from "../public/images/hayden3.jpg";
 import haydenImage2 from "../public/images/hayden2.jpg";
 import haydenImage3 from "../public/images/hayden4.jpg";
+import {getLocaleStrings} from "../helpers/languages";
+import {useRouter} from "next/router";
 
 export default function About() {
+    const lang = getLocaleStrings(useRouter().locale, 'about');
+
     return (
-        <MainLayout theme="black" paddingTop={true}>
+        <MainLayout theme="black"
+                    paddingTop={true}
+                    title={lang.title}
+        >
             <Container className="first-container">
                 <section className="flex flex-col gap-8">
                     <header className="text-center">
                         <h1 className="title-big md:max-w-[30ch] mx-auto">
-                            <span className="font-sans font-normal">
-                                <b>Meize</b> je <b>kreativní produkční studio</b>.{' '}
-                                Precizně dokážeme splnit jakýkoli požadavek a <b>máme rádi výzvy</b>.
-                            </span>
-                            {/*<span className="font-sans font-normal">Meize is an award-winning{' '}</span>*/}
-                            {/*<b className="font-sans">creative and production studio</b>{' '}*/}
-                            {/*<span className="font-sans font-normal">known for work that feels more like entertainment than advertising.</span>*/}
+                            <span className="font-sans font-normal"
+                                  dangerouslySetInnerHTML={{__html: lang.headline}}
+                            />
                         </h1>
                     </header>
 
                     <Typo className="text-center max-w-[65ch]">
-                        We partner with brands, agencies, and platforms to create campaigns, commercials, and branded
-                        content with authenticity at its core. Our award-winning roster of directors represents the next
-                        generation of storytellers, working across commercial and documentary genres.
+                        {lang.intro}
                     </Typo>
                 </section>
             </Container>
@@ -65,7 +66,7 @@ export default function About() {
                 <section className="flex flex-col gap-8">
                     <header>
                         <h2 className="title-medium">
-                            Select Partners
+                            {lang.partners}
                         </h2>
                     </header>
                     <PartnersGrid/>
@@ -76,7 +77,7 @@ export default function About() {
                 <section className="flex flex-col gap-8">
                     <header>
                         <h2 className="title-medium">
-                            Real Feedback
+                            {lang.feedback}
                         </h2>
                     </header>
 

@@ -1,4 +1,3 @@
-import categories from '../content/categories.json';
 import projects from '../content/projects.json';
 
 export const getAllProjects = () => {
@@ -26,9 +25,5 @@ export const getProjectBySlug = (slug) => {
 }
 
 export const getProjectsInReel = () => {
-    return getProjectByIds([1,2,3,4]);
-}
-
-export const getAllCategories = () => {
-    return categories;
+    return getProjectByIds([1, 2, 3, 4]);
 }

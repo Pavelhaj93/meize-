@@ -1,31 +1,34 @@
 import Link from "next/link";
+import {useRouter} from "next/router";
+import {getLocaleStrings} from "../helpers/languages";
 
-function ButtonArrowBody({direction}) {
-    if (direction === 'prev') {
+function ButtonArrowBody({direction, label}) {
+    if (direction === 'previous') {
         return (
             <>
                 <span>[svg]</span>
-                <span>Previous</span>
+                <span>{label}</span>
             </>
         );
     }
 
     return (
         <>
-            <span>Next</span>
+            <span>{label}</span>
             <span>[svg]</span>
         </>
     );
 }
 
-export default function ButtonArrow({href, direction = 'prev', className = '', ...rest}) {
+export default function ButtonArrow({href, direction = 'next', className = '', ...rest}) {
+    const lang = getLocaleStrings(useRouter().locale, 'common');
     const buttonClasses = `uppercase font-bold text-xl inline-flex gap-4 mouse-hover:text-blue-600 transition-colors duration-300 rounded-none ${className}`;
 
     if (href) {
         return (
             <Link href={href}>
                 <a className={buttonClasses}>
-                    <ButtonArrowBody direction={direction}/>
+                    <ButtonArrowBody direction={direction} label={lang[direction]}/>
                 </a>
             </Link>
         )

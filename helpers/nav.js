@@ -1,35 +1,18 @@
 export const links = {
     left: [
         {
-            title: 'About',
+            title: (lang) => lang.pages.about,
             href: '/about'
         },
         {
-            title: 'Projects',
+            title: (lang) => lang.pages.projects,
             href: '/projects'
         },
     ],
     right: [
         {
-            title: 'Contact',
+            title: (lang) => lang.pages.contact,
             href: '/contact'
-        },
-        {
-            title: 'Language',
-            href: '/en',
-            type: 'dropdown',
-            items: [
-                {
-                    title: 'English',
-                    href: '/',
-                    locale: 'en'
-                },
-                {
-                    title: 'Čeština',
-                    href: '/',
-                    locale: 'cs'
-                }
-            ]
-        },
+        }
     ]
 }

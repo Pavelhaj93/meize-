@@ -2,10 +2,13 @@ import {links} from "../helpers/nav";
 import Link from "next/link";
 import Button from "./Button";
 import Container from "./Container";
+import {getLocaleStrings} from "../helpers/languages";
+import {useRouter} from "next/router";
 
 const allLinks = [...links.left, ...links.right];
 
 export default function BurgerMenu({className = '', active, ...rest}) {
+    const lang = getLocaleStrings(useRouter().locale);
 
     return (
         <nav
@@ -19,7 +22,7 @@ export default function BurgerMenu({className = '', active, ...rest}) {
                                    transition: active ? `opacity 0.3s ease ${(key + 1) * 0.15}s, transform 0.3s ease ${(key + 1) * 0.15}s, color 0.3s ease` : 'opacity 0.3s ease, transform 0s ease 0.3s',
                                }}
                             >
-                                {title}
+                                {title(lang)}
                             </a>
                         </Link>
                     )

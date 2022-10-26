@@ -1,13 +1,15 @@
 import {useState} from "react";
-import {getAllTestimonials} from "../helpers/testimonials";
+// import {getAllTestimonials} from "../helpers/testimonials";
+import {getLocaleStrings} from "../helpers/languages";
+import {useRouter} from "next/router";
 
 export default function TestimonialsCarousel({className = '', ...rest}) {
-    const [active, setActive] = useState(0);
-    const [testimonials] = useState(getAllTestimonials());
+    const testimonials = getLocaleStrings(useRouter().locale, 'testimonials');
 
-    const handleChangeSlide = (num) => {
-        setActive(num);
-    }
+    const [active, setActive] = useState(0);
+    // const [testimonials] = useState(getAllTestimonials());
+
+    const handleChangeSlide = (num) => setActive(num)
 
     return (
         <section className={`flex flex-col gap-10 ${className}`}>

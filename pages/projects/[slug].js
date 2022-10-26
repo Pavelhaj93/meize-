@@ -5,6 +5,8 @@ import Link from "next/link";
 import Hero from "../../components/Hero";
 import ScreenGrabs from "../../components/ScreenGrabs";
 import ProjectButtons from "../../components/ProjectButtons";
+import {getLocaleStrings} from "../../helpers/languages";
+import {useRouter} from "next/router";
 
 export async function getStaticPaths() {
     return {
@@ -35,19 +37,25 @@ export async function getStaticProps(context) {
 }
 
 export default function ProjectDetail({project}) {
+    const lang = getLocaleStrings(useRouter().locale);
 
     return (
-        <MainLayout theme="black" paddingTop={true}>
+        <MainLayout theme="black"
+                    paddingTop={true}
+                    title={project.title + ' - Project'}
+        >
             <article>
                 <Container className="first-container flex flex-col gap-4">
                     <div className="text-center">
-                        {project.categories.map((category, key) => {
+                        {project.categories.map((slug, key) => {
                             return (
                                 <>
-                                    <Link href={`/projects/category/${category}`}
+                                    <Link href={`/projects/category/${slug}`}
                                           key={`Category: ${key}`}
                                     >
-                                        <a className="uppercase font-bold text-sm mouse-hover:text-blue-600 transition-colors duration-300">{category}</a>
+                                        <a className="uppercase font-bold text-sm mouse-hover:text-blue-600 transition-colors duration-300">
+                                            {lang.categories[slug]}
+                                        </a>
                                     </Link>
                                     {key < project.categories.length - 1 && ', '}
                                 </>

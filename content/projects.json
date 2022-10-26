@@ -99,7 +99,7 @@
     "client": "Klient c.7",
     "thumbnail": "/images/hayden2.jpg",
     "video": "",
-    "featured": true,
+    "featured": false,
     "categories": [
       "creative",
       "production",
@@ -113,7 +113,7 @@
     "client": "Klient c.7",
     "thumbnail": "/images/hayden2.jpg",
     "video": "",
-    "featured": true,
+    "featured": false,
     "categories": [
       "production",
       "postproduction"
@@ -126,7 +126,7 @@
     "client": "Klient c.7",
     "thumbnail": "/images/hayden2.jpg",
     "video": "",
-    "featured": true,
+    "featured": false,
     "categories": [
       "production",
       "postproduction"
@@ -139,7 +139,7 @@
     "client": "Klient c.7",
     "thumbnail": "/images/hayden2.jpg",
     "video": "",
-    "featured": true,
+    "featured": false,
     "categories": [
       "production",
       "postproduction"
@@ -152,7 +152,7 @@
     "client": "Klient c.7",
     "thumbnail": "/images/hayden2.jpg",
     "video": "",
-    "featured": true,
+    "featured": false,
     "categories": [
       "production",
       "postproduction"
@@ -165,7 +165,7 @@
     "client": "Klient c.7",
     "thumbnail": "/images/hayden2.jpg",
     "video": "",
-    "featured": true,
+    "featured": false,
     "categories": [
       "production",
       "postproduction"
@@ -178,7 +178,7 @@
     "client": "Klient c.7",
     "thumbnail": "/images/hayden2.jpg",
     "video": "",
-    "featured": true,
+    "featured": false,
     "categories": [
       "production",
       "postproduction"
@@ -191,7 +191,7 @@
     "client": "Klient c.7",
     "thumbnail": "/images/hayden2.jpg",
     "video": "",
-    "featured": true,
+    "featured": false,
     "categories": [
       "production",
       "postproduction"
@@ -204,7 +204,7 @@
     "client": "Klient c.7",
     "thumbnail": "/images/hayden2.jpg",
     "video": "",
-    "featured": true,
+    "featured": false,
     "categories": [
       "production",
       "postproduction"
@@ -217,7 +217,7 @@
     "client": "Klient c.7",
     "thumbnail": "/images/hayden2.jpg",
     "video": "",
-    "featured": true,
+    "featured": false,
     "categories": [
       "production",
       "postproduction"
