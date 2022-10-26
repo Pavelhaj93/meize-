@@ -18,8 +18,8 @@ export default function Contact() {
             </Container>
 
             <Container>
-                <div className="relative w-full aspect-[5/2]">
-                    <Image src={imageHayden} layout="fill" objectFit="cover"/>
+                <div className="relative w-full aspect-video lg:aspect-[5/2]">
+                    <Image src={imageHayden} layout="fill" objectFit="cover" alt=""/>
                 </div>
             </Container>
 

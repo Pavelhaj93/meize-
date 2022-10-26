@@ -1,5 +1,7 @@
-export default function BurgerButton({active, theme = 'black', className = '', ...rest}) {
-    const colorClasses = theme === 'black' ? 'bg-black' : (active ? 'bg-black' : 'bg-white');
+import {useEffect} from "react";
+
+export default function BurgerButton({active, scrolled, theme = 'black', className = '', ...rest}) {
+    const colorClasses = theme === 'black' ? 'bg-black' : ((active || scrolled) ? 'bg-black' : 'bg-white');
 
     return (
         <button

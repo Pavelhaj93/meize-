@@ -1,16 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import Container from "./Container";
-import {useEffect, useState} from "react";
-import {getProjectsInReel} from "../helpers/projects";
-
-import haydenImage from "../public/images/hayden2.jpg";
+import {useCallback, useEffect, useState} from "react";
 
 let videoInterval;
 
-const reels = getProjectsInReel();
-
-export default function Reel({className = '', ...rest}) {
+export default function Reel({images, reels, className = '', ...rest}) {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const handleMouseEnter = (index) => {
@@ -20,24 +15,35 @@ export default function Reel({className = '', ...rest}) {
 
     const handleMouseLeave = () => resetInterval();
 
-    const handleIndexChange = () => setActiveIndex((activeIndex + 1) % reels.length);
+    const handleIndexChange = useCallback(() => {
+        setActiveIndex((activeIndex + 1) % reels.length)
+    }, [activeIndex, reels.length]);
 
-    const resetInterval = () => {
+    const resetInterval = useCallback(() => {
         clearInterval(videoInterval);
         videoInterval = setInterval(handleIndexChange, 5000);
-    };
+    }, [handleIndexChange]);
 
     useEffect(() => {
         resetInterval();
 
         return () => clearInterval(videoInterval);
-    }, [handleIndexChange]);
+    }, [resetInterval]);
 
     return (
         <section className={`relative w-full bg-black aspect-video ${className}`} {...rest}>
-            <div className="absolute top-0 left-0 w-full h-full bg-black overflow-hidden">
-                <Image src={haydenImage} layout="responsive" objectFit="cover"/>
-            </div>
+            {images.map((image, key) => {
+                return (
+                    <div
+                        className={`absolute top-0 left-0 w-full h-full bg-black overflow-hidden transition-opacity duration-500 ${key === activeIndex ? 'opacity-100' : 'opacity-0'}`}
+                        key={`Image: ${key}`}
+                    >
+                        <Image src={image} layout="responsive" objectFit="cover" alt=""/>
+                        <div className="absolute top-0 left-0 w-full h-full bg-black/50"/>
+                    </div>
+                )
+            })}
+
             <video src={reels[activeIndex].reelVideo}
                    className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
                    loop={true}
@@ -45,7 +51,7 @@ export default function Reel({className = '', ...rest}) {
                    muted={true}
                    autoPlay={true}
             />
-            <span className="text-white">{activeIndex}</span>
+
             <Container className="absolute left-1/2 -translate-x-1/2 top-3/4 flex items-center justify-center gap-24">
                 {reels.map(({title, slug, client, href}, key) => {
                     return (

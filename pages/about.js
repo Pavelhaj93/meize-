@@ -51,13 +51,13 @@ export default function About() {
 
             <Container className="mb-32 grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="relative aspect-video">
-                    <Image src={haydenImage} layout="fill" objectFit="cover"/>
+                    <Image src={haydenImage} layout="fill" objectFit="cover" alt=""/>
                 </div>
                 <div className="relative aspect-video">
-                    <Image src={haydenImage2} layout="fill" objectFit="cover"/>
+                    <Image src={haydenImage2} layout="fill" objectFit="cover" alt=""/>
                 </div>
                 <div className="relative aspect-video">
-                    <Image src={haydenImage3} layout="fill" objectFit="cover"/>
+                    <Image src={haydenImage3} layout="fill" objectFit="cover" alt=""/>
                 </div>
             </Container>
 

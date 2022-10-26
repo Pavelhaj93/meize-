@@ -1,5 +1,5 @@
 import Container from "./Container";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {getScrolledFromTop} from "../helpers/scroll";
 import Link from "next/link";
 import LogoLink from "./LogoLink";
@@ -32,11 +32,11 @@ export default function Nav({theme = 'black', className = ''}) {
         setBurgerActive(!burgerActive);
     }
 
-    const handleResize = () => {
+    const handleResize = useCallback(() => {
         if (window.innerWidth >= 640 && burgerActive) {
             setBurgerActive(false);
         }
-    };
+    }, [burgerActive]);
 
     const handleLanguageClick = (e) => {
         setLanguageActive(!languageActive);
@@ -52,7 +52,7 @@ export default function Nav({theme = 'black', className = ''}) {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleResize);
         }
-    }, []);
+    }, [handleResize]);
 
     return (
         <>
@@ -113,6 +113,7 @@ export default function Nav({theme = 'black', className = ''}) {
                         <BurgerButton onClick={handleBurgerClick}
                                       active={burgerActive}
                                       theme={theme}
+                                      scrolled={scrolled}
                         />
                     </div>
                 </Container>
