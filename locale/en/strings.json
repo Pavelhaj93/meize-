@@ -13,6 +13,11 @@
     "previous": "Previous",
     "next": "Next"
   },
+  "alerts": {
+    "commonError": "Something went wrong, please try again.",
+    "newsletterError": "Please enter a valid email address.",
+    "newsletterSuccess": "Thank you for subscribing!"
+  },
   "pages": {
     "about": "About",
     "projects": "Projects",
@@ -35,7 +40,6 @@
     "follow": "Follow Us",
     "message": "Message Us",
     "form": {
-
     }
   },
   "testimonials": [

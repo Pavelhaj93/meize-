@@ -6,12 +6,24 @@ import {useRef, useState} from "react";
 import Alert from "./Alert";
 
 export default function FormNewsletter() {
-    const lang = getLocaleStrings(useRouter().locale, 'common');
+    const lang = getLocaleStrings(useRouter().locale);
 
     const inputRef = useRef();
     const [email, setEmail] = useState('');
     const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(lang.alerts.newsletterError);
     const [success, setSuccess] = useState(false);
+
+    const resetStatuses = () => {
+        setSuccess(false);
+        setError(false);
+        setErrorMessage(lang.alerts.newsletterError);
+    }
+
+    const resetForm = () => {
+        resetStatuses();
+        setEmail('');
+    }
 
     const handleInputChange = (e) => {
         const {value} = e.target;
@@ -27,22 +39,29 @@ export default function FormNewsletter() {
         setError(false);
     }
 
-    const showError = () => {
+    const showError = (message) => {
         setSuccess(false);
         setError(true);
+        setErrorMessage(message);
         inputRef.current.focus();
     };
 
     const showSuccess = () => {
+        setEmail('');
         setError(false);
         setSuccess(true);
+
+        setTimeout(() => {
+            resetForm();
+        }, 3000);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        resetStatuses();
 
         if (!email) {
-            showError();
+            showError(lang.alerts.newsletterError);
             return;
         }
 
@@ -53,12 +72,9 @@ export default function FormNewsletter() {
             },
             body: JSON.stringify({email}),
         }).then((res) => {
-            if (res.status === 200) {
-                setEmail(null);
-                showSuccess();
-            } else {
-                showError();
-            }
+            res.status === 200 ? showSuccess() : showError(lang.alerts.commonError);
+        }).catch((error) => {
+            console.error(error);
         });
 
     }
@@ -69,18 +85,26 @@ export default function FormNewsletter() {
         >
             <div className="relative flex-1">
                 <Input type="text"
-                       placeholder={lang.yourEmail}
+                       placeholder={lang.common.yourEmail}
                        value={email}
                        onChange={handleInputChange}
                        onBlur={handleInputBlur}
                        ref={inputRef}
                 />
 
-                {error && (
-                    <Alert className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2">
-                        Please enter a valid email address.
-                    </Alert>
-                )}
+
+                <Alert className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2"
+                       active={error}
+                >
+                    {errorMessage}
+                </Alert>
+
+                <Alert className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2"
+                       theme="success"
+                       active={success}
+                >
+                    {lang.alerts.newsletterSuccess}
+                </Alert>
             </div>
             <Button type="submit"
                     theme="secondary"
@@ -89,7 +113,7 @@ export default function FormNewsletter() {
                     className="max-w-[150px]"
                     padding="none"
             >
-                {lang.subscribe}
+                {lang.common.subscribe}
             </Button>
         </form>
     )
