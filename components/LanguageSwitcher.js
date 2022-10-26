@@ -20,7 +20,7 @@ export default function LanguageSwitcher({className = '', ...rest}) {
         >
             <span className="relative z-10">{lang.common.language}</span>
             <div
-                className={`absolute -top-[10px] -right-[10px] w-[calc(100%+20px)] bg-black p-2 text-right transition-all duration-200 ${active ? 'translate-y-0 opacity-100 pointer-events-auto pt-[40px]' : 'opacity-0 pointer-events-none translate-y-4'}`}>
+                className={`absolute -top-[10px] -right-[10px] min-w-[calc(100%+20px)] bg-black p-2 text-right transition-all duration-200 ${active ? 'translate-y-0 opacity-100 pointer-events-auto pt-[40px]' : 'opacity-0 pointer-events-none translate-y-4'}`}>
                 {locales.map((localeItem, key) => {
                     return (
                         <Link href={asPath} locale={localeItem} key={`NavLang: ${localeItem}`}>
