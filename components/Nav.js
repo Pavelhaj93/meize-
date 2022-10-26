@@ -11,8 +11,12 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import NavLink from "./NavLink";
 
 export default function Nav({theme = 'black', className = ''}) {
-    const lang = getLocaleStrings(useRouter().locale);
+    const {locale, asPath} = useRouter();
+    const lang = getLocaleStrings(locale);
 
+    const isHomepage = asPath === '/';
+
+    const [loaded, setLoaded] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [burgerActive, setBurgerActive] = useState(false);
 
@@ -39,6 +43,16 @@ export default function Nav({theme = 'black', className = ''}) {
         }
     }, [handleResize]);
 
+    useEffect(() => {
+        if (isHomepage) {
+            setTimeout(() => {
+                setLoaded(true);
+            }, 1000)
+        } else {
+            setLoaded(true);
+        }
+    }, []);
+
     return (
         <>
             <nav className={`fixed top-0 left-0 w-full z-30 ${className}`}>
@@ -47,7 +61,8 @@ export default function Nav({theme = 'black', className = ''}) {
                 />
 
                 <Container className="relative flex items-center justify-between py-4 sm:py-6">
-                    <div className="flex-1 hidden sm:flex  items-center gap-16">
+                    <div
+                        className={`flex-1 hidden sm:flex  items-center gap-16 ${(!loaded && isHomepage) ? 'opacity-0 -translate-y-full' : ''} transition-all duration-500 delay-700`}>
                         {links.left.map(({href, title}, key) => {
                             return (
                                 <NavLink key={`NavLinksRight:${key}`}
@@ -60,12 +75,18 @@ export default function Nav({theme = 'black', className = ''}) {
                         })}
                     </div>
                     <div
-                        className={`flex-1 sm:flex-none text-center sm:text-left transition-colors duration-300 ${(scrolled || burgerActive) ? 'text-black' : themeClasses}`}
+                        className={`flex-1 sm:flex-none text-center sm:text-left ${(scrolled || burgerActive) ? 'text-black' : themeClasses}`}
                     >
-                        <LogoLink/>
+                        <div className={(!loaded && isHomepage) ? 'opacity-0 -translate-y-full' : ''}
+                             style={{
+                                 transition: 'color .2s ease-in-out, opacity .5s ease-in-out, transform .5s ease-in-out'
+                             }}
+                        >
+                            <LogoLink/>
+                        </div>
                     </div>
-
-                    <div className="flex-1 hidden sm:flex  items-center gap-16 justify-end">
+                    <div
+                        className={`flex-1 hidden sm:flex  items-center gap-16 justify-end ${(!loaded && isHomepage) ? 'opacity-0 -translate-y-full' : ''} transition-all duration-500 delay-700`}>
                         {links.right.map(({href, title}, key) => {
                             return (
                                 <NavLink key={`NavLinksRight:${key}`}

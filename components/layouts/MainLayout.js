@@ -5,7 +5,15 @@ import {generateTitle} from "../../helpers/meta";
 import {getLocaleStrings} from "../../helpers/languages";
 import {useRouter} from "next/router";
 
-export default function MainLayout({children, title, description, theme = 'black', className = '', paddingTop = true, ...rest}) {
+export default function MainLayout({
+                                       children,
+                                       title,
+                                       description,
+                                       theme = 'black',
+                                       className = '',
+                                       paddingTop = true,
+                                       ...rest
+                                   }) {
     const lang = getLocaleStrings(useRouter().locale, 'og');
 
     return (
@@ -14,7 +22,9 @@ export default function MainLayout({children, title, description, theme = 'black
                 <title>{generateTitle(title, lang.title)}</title>
             </Head>
             <div
-                className={`min-h-screen flex flex-col ${paddingTop ? 'pt-[56px] sm:pt-[72px]' : ''} ${className}`} {...rest}>
+                className={`min-h-screen flex flex-col ${paddingTop ? 'pt-[72px] sm:pt-[88px]' : ''} ${className}`}
+                {...rest}
+            >
                 <Nav theme={theme}/>
                 <main className="flex-1">
                     {children}
