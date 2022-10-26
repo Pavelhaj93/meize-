@@ -4,6 +4,7 @@ import Input from "./Input";
 import {socials} from "../helpers/contacts";
 import {getLocaleStrings} from "../helpers/languages";
 import {useRouter} from "next/router";
+import FormNewsletter from "./FormNewsletter";
 
 export default function Footer() {
     const lang = getLocaleStrings(useRouter().locale, 'common');
@@ -23,18 +24,7 @@ export default function Footer() {
                         {lang.ctaButton}
                     </Button>
                     <div className="flex-1 w-full">
-                        <form action="" className="w-full flex items-stretch h-full">
-                            <Input type="email" placeholder={lang.yourEmail} className="flex-1"/>
-                            <Button type="submit"
-                                    theme="secondary"
-                                    size="small"
-                                    textSize="tiny"
-                                    className="max-w-[150px]"
-                                    padding="none"
-                            >
-                                {lang.subscribe}
-                            </Button>
-                        </form>
+                        <FormNewsletter/>
                     </div>
                 </div>
 

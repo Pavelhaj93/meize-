@@ -11,18 +11,14 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import NavLink from "./NavLink";
 
 export default function Nav({theme = 'black', className = ''}) {
-    const {locale, asPath} = useRouter();
-    const lang = getLocaleStrings(locale);
+    const lang = getLocaleStrings(useRouter().locale);
 
-    const isHomepage = asPath === '/';
-
-    const [loaded, setLoaded] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [burgerActive, setBurgerActive] = useState(false);
 
     const themeClasses = theme === 'white' ? 'text-white' : 'text-black';
 
-    const handleScroll = () => setScrolled(getScrolledFromTop() > 10);
+    const handleScroll = () => setScrolled(getScrolledFromTop() > 50);
 
     const handleBurgerClick = () => setBurgerActive(!burgerActive)
 
@@ -43,26 +39,15 @@ export default function Nav({theme = 'black', className = ''}) {
         }
     }, [handleResize]);
 
-    useEffect(() => {
-        if (isHomepage) {
-            setTimeout(() => {
-                setLoaded(true);
-            }, 1000)
-        } else {
-            setLoaded(true);
-        }
-    }, []);
-
     return (
         <>
             <nav className={`fixed top-0 left-0 w-full z-30 ${className}`}>
                 <div
-                    className={`absolute shadow-2xl top-0 left-0 w-full h-full bg-white transition-all duration-500 ${(scrolled && !burgerActive) ? 'h-full' : 'h-0'}`}
+                    className={`absolute shadow-2xl top-0 left-0 w-full bg-white transition-all duration-500 ${(scrolled && !burgerActive) ? 'h-full' : 'h-0'}`}
                 />
 
                 <Container className="relative flex items-center justify-between py-4 sm:py-6">
-                    <div
-                        className={`flex-1 hidden sm:flex  items-center gap-16 ${(!loaded && isHomepage) ? 'opacity-0 -translate-y-full' : ''} transition-all duration-500 delay-700`}>
+                    <div className="flex-1 hidden sm:flex  items-center gap-16">
                         {links.left.map(({href, title}, key) => {
                             return (
                                 <NavLink key={`NavLinksRight:${key}`}
@@ -75,18 +60,12 @@ export default function Nav({theme = 'black', className = ''}) {
                         })}
                     </div>
                     <div
-                        className={`flex-1 sm:flex-none text-center sm:text-left ${(scrolled || burgerActive) ? 'text-black' : themeClasses}`}
+                        className={`flex-1 sm:flex-none text-center sm:text-left transition-colors duration-300 ${(scrolled || burgerActive) ? 'text-black' : themeClasses}`}
                     >
-                        <div className={(!loaded && isHomepage) ? 'opacity-0 -translate-y-full' : ''}
-                             style={{
-                                 transition: 'color .2s ease-in-out, opacity .5s ease-in-out, transform .5s ease-in-out'
-                             }}
-                        >
-                            <LogoLink/>
-                        </div>
+                        <LogoLink/>
                     </div>
-                    <div
-                        className={`flex-1 hidden sm:flex  items-center gap-16 justify-end ${(!loaded && isHomepage) ? 'opacity-0 -translate-y-full' : ''} transition-all duration-500 delay-700`}>
+
+                    <div className="flex-1 hidden sm:flex  items-center gap-16 justify-end">
                         {links.right.map(({href, title}, key) => {
                             return (
                                 <NavLink key={`NavLinksRight:${key}`}
