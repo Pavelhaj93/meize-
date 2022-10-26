@@ -12,6 +12,7 @@ let themeClasses;
 export default function Nav({theme = 'black', className = ''}) {
     const [scrolled, setScrolled] = useState(false);
     const [burgerActive, setBurgerActive] = useState(false);
+    const [languageActive, setLanguageActive] = useState(false);
 
     switch (theme) {
         case 'white':
@@ -24,7 +25,7 @@ export default function Nav({theme = 'black', className = ''}) {
     }
 
     const handleScroll = () => {
-        setScrolled(getScrolledFromTop() > 100);
+        setScrolled(getScrolledFromTop() > 10);
     };
 
     const handleBurgerClick = (e) => {
@@ -36,6 +37,10 @@ export default function Nav({theme = 'black', className = ''}) {
             setBurgerActive(false);
         }
     };
+
+    const handleLanguageClick = (e) => {
+        setLanguageActive(!languageActive);
+    }
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -54,14 +59,14 @@ export default function Nav({theme = 'black', className = ''}) {
             <nav
                 className={`fixed top-0 left-0 w-full z-30 ${className}`}>
                 <div
-                    className={`absolute top-0 left-0 w-full h-full bg-white transition-all duration-500 ${(scrolled && !burgerActive) ? 'h-full' : 'h-0'}`}/>
+                    className={`absolute shadow-2xl top-0 left-0 w-full h-full bg-white transition-all duration-500 ${(scrolled && !burgerActive) ? 'h-full' : 'h-0'}`}/>
 
                 <Container className="relative flex items-center justify-between py-4 sm:py-6">
                     <div className="flex-1 hidden sm:flex  items-center gap-16">
                         {links.left.map(({href, title}, key) => {
                             return (
                                 <Link href={href} key={`NavLinkLeft: ${key}`}>
-                                    <a className={`font-sans-alt tracking-tight uppercase font-bold ${scrolled ? 'text-black' : themeClasses} mouse-hover:text-blue-600 transition-colors duration-200`}>{title}</a>
+                                    <a className={`uppercase font-bold ${scrolled ? 'text-black' : themeClasses} mouse-hover:text-blue-600 transition-colors duration-200`}>{title}</a>
                                 </Link>
                             )
                         })}
@@ -71,15 +76,40 @@ export default function Nav({theme = 'black', className = ''}) {
                         <LogoLink/>
                     </div>
                     <div className="flex-1 hidden sm:flex  items-center gap-16 justify-end">
-                        {links.right.map(({href, title}, key) => {
+                        {links.right.map(({href, title, type, items}, key) => {
+                            const classes = `uppercase font-bold ${scrolled ? 'text-black' : themeClasses} transition-colors duration-200`;
+                            if (type !== 'dropdown') {
+                                return (
+                                    <Link href={href} key={`NavLinkRight: ${key}`}>
+                                        <a className={`${classes} mouse-hover:text-blue-600`}>{title}</a>
+                                    </Link>
+                                )
+                            }
+
                             return (
-                                <Link href={href} key={`NavLinkRight: ${key}`}>
-                                    <a className={`font-sans-alt tracking-tight uppercase font-bold ${scrolled ? 'text-black' : themeClasses} mouse-hover:text-blue-600 transition-colors duration-200`}>{title}</a>
-                                </Link>
+                                <div
+                                    key={`NavLinkRight: ${key}`}
+                                    className={`${classes} relative ${languageActive ? 'bg-black2 text-white 2px-2' : ''} cursor-pointer transition-all`}
+                                    onClick={handleLanguageClick}
+                                    onMouseEnter={handleLanguageClick}
+                                    onMouseLeave={() => setLanguageActive(false)}
+                                >
+                                    <span className="relative z-10">{title}</span>
+                                    <div
+                                        className={`absolute -top-[10px] -right-[10px] w-[calc(100%+20px)] bg-black p-2 text-right transition-all duration-200 ${languageActive ? 'translate-y-0 opacity-100 pointer-events-auto pt-[40px]' : 'opacity-0 pointer-events-none translate-y-4'}`}>
+                                        {items.map(({title, href, ...rest}) => {
+                                            return (
+                                                <Link href={href} key={`Lang: ${title}`} {...rest}>
+                                                    <a className="block text-white hover:text-white/60 transition-colors duration-200">{title}</a>
+                                                </Link>
+                                            )
+                                        })}
+                                    </div>
+                                </div>
                             )
                         })}
                     </div>
-                    <div className="block sm:hidden text-right text-0">
+                    <div className="absolute top-1/2 -translate-y-1/2 right-4 block sm:hidden text-right text-0">
                         <BurgerButton onClick={handleBurgerClick}
                                       active={burgerActive}
                                       theme={theme}

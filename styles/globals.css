@@ -12,6 +12,10 @@ label[for] {
     @apply cursor-pointer;
 }
 
+svg {
+    @apply max-w-full;
+}
+
 .container {
     @apply w-full;
     @apply max-w-[1600px];
@@ -22,6 +26,8 @@ label[for] {
 .first-container {
     @apply py-10;
     @apply md:py-16;
+    @apply lg:py-20;
+    @apply xl:py-24;
 }
 
 .title-big {
@@ -55,4 +61,8 @@ label[for] {
     @apply lg:leading-none;
     @apply xl:text-5xl;
     @apply xl:leading-none;
+}
+
+.title-shadow {
+    text-shadow: -1px 2px 1px rgba(0, 0, 0, 0.5);
 }

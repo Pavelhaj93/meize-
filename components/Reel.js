@@ -1,13 +1,16 @@
+import Image from "next/image";
 import Link from "next/link";
 import Container from "./Container";
 import {useEffect, useState} from "react";
 import {getProjectsInReel} from "../helpers/projects";
 
+import haydenImage from "../public/images/hayden2.jpg";
+
 let videoInterval;
 
+const reels = getProjectsInReel();
+
 export default function Reel({className = '', ...rest}) {
-    const [reels, setReels] = useState(getProjectsInReel());
-    const [video, setVideo] = useState(reels[0].reelVideo);
     const [activeIndex, setActiveIndex] = useState(0);
 
     const handleMouseEnter = (index) => {
@@ -15,7 +18,7 @@ export default function Reel({className = '', ...rest}) {
         setActiveIndex(index);
     }
 
-    const handleMouseLeave = () => resetInterval()
+    const handleMouseLeave = () => resetInterval();
 
     const handleIndexChange = () => setActiveIndex((activeIndex + 1) % reels.length);
 
@@ -25,18 +28,17 @@ export default function Reel({className = '', ...rest}) {
     };
 
     useEffect(() => {
-        setVideo(reels[activeIndex].reelVideo);
-    }, [activeIndex]);
-
-    useEffect(() => {
         resetInterval();
 
         return () => clearInterval(videoInterval);
     }, [handleIndexChange]);
 
     return (
-        <section className={`relative w-full bg-black aspect-video ${className}`}>
-            <video src={video}
+        <section className={`relative w-full bg-black aspect-video ${className}`} {...rest}>
+            <div className="absolute top-0 left-0 w-full h-full bg-black overflow-hidden">
+                <Image src={haydenImage} layout="responsive" objectFit="cover"/>
+            </div>
+            <video src={reels[activeIndex].reelVideo}
                    className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
                    loop={true}
                    playsInline={true}

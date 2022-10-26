@@ -68,9 +68,8 @@ export default function ProjectDetail({project}) {
 
                 <Hero/>
 
-                <Container className="pt-20 pb-16">
+                <Container className="pt-20 pb-16 flex flex-col gap-12">
                     <ScreenGrabs slug={project.slug}/>
-
                     <ProjectButtons project={project}/>
                 </Container>
             </article>

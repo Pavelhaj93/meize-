@@ -14,9 +14,9 @@ export default function BurgerMenu({className = '', active, ...rest}) {
                 {allLinks.map(({href, title}, key) => {
                     return (
                         <Link href={href} key={`BurgerMenu: ${key}`}>
-                            <a className={`uppercase font-bold text-3xl tracking-wider ${!active ? 'opacity-0 -translate-y-1/2' : ''}`}
+                            <a className={`uppercase font-bold text-3xl tracking-wider mouse-hover:text-blue-600 ${!active ? 'opacity-0 -translate-y-1/2' : ''}`}
                                style={{
-                                   transition: active ? `all 0.3s ease ${(key + 1) * 0.15}s` : 'opacity 0.3s ease, transform 0s ease 0.3s',
+                                   transition: active ? `opacity 0.3s ease ${(key + 1) * 0.15}s, transform 0.3s ease ${(key + 1) * 0.15}s, color 0.3s ease` : 'opacity 0.3s ease, transform 0s ease 0.3s',
                                }}
                             >
                                 {title}
@@ -32,7 +32,7 @@ export default function BurgerMenu({className = '', active, ...rest}) {
                             padding="custom"
                             className={`p-2.5 ${!active ? 'opacity-0 -translate-y-1/2' : ''}`}
                             style={{
-                                transition: active ? `all 0.3s ease ${(allLinks.length + 1) * 0.15}s` : 'opacity 0.3s ease, transform 0s ease 0.3s',
+                                transition: active ? `opacity 0.3s ease ${(allLinks.length + 1) * 0.15}s, transform 0.3s ease ${(allLinks.length + 1) * 0.15}s, color 0.3s ease, background 0.3s ease` : 'opacity 0.3s ease, transform 0s ease 0.3s',
                             }}
                     >
                         Get In Touch

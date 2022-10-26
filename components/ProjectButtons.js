@@ -3,7 +3,7 @@ import ButtonNext from "./ButtonNext";
 
 export default function ProjectButtons({project}) {
     return (
-        <div className="flex justify-between items-center pt-20 pb-10">
+        <div className="flex justify-between items-center">
             <div>
                 {project.prevProject && (
                     <ButtonPrev href={`/projects/${project.prevProject.slug}`}/>

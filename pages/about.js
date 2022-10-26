@@ -3,6 +3,11 @@ import Container from "../components/Container";
 import Typo from "../components/Typo";
 import PartnersGrid from "../components/PartnersGrid";
 import TestimonialsCarousel from "../components/TestimonialsCarousel";
+import Image from "next/image";
+
+import haydenImage from "../public/images/hayden3.jpg";
+import haydenImage2 from "../public/images/hayden2.jpg";
+import haydenImage3 from "../public/images/hayden4.jpg";
 
 export default function About() {
     return (
@@ -11,9 +16,13 @@ export default function About() {
                 <section className="flex flex-col gap-8">
                     <header className="text-center">
                         <h1 className="title-big md:max-w-[30ch] mx-auto">
-                            <span className="font-sans font-normal"><u2>Meize</u2> is an award-winning{' '}</span>
-                            <b className="font-sans">creative and production studio</b>{' '}
-                            <span className="font-sans font-normal">known for work that feels more like entertainment than advertising.</span>
+                            <span className="font-sans font-normal">
+                                <b>Meize</b> je <b>kreativní produkční studio</b>.{' '}
+                                Precizně dokážeme splnit jakýkoli požadavek a <b>máme rádi výzvy</b>.
+                            </span>
+                            {/*<span className="font-sans font-normal">Meize is an award-winning{' '}</span>*/}
+                            {/*<b className="font-sans">creative and production studio</b>{' '}*/}
+                            {/*<span className="font-sans font-normal">known for work that feels more like entertainment than advertising.</span>*/}
                         </h1>
                     </header>
 
@@ -41,13 +50,19 @@ export default function About() {
             {/*</Container>*/}
 
             <Container className="mb-32 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="w-full aspect-video bg-blue-600"/>
-                <div className="w-full aspect-video bg-blue-600"/>
-                <div className="w-full aspect-video bg-blue-600"/>
+                <div className="relative aspect-video">
+                    <Image src={haydenImage} layout="fill" objectFit="cover"/>
+                </div>
+                <div className="relative aspect-video">
+                    <Image src={haydenImage2} layout="fill" objectFit="cover"/>
+                </div>
+                <div className="relative aspect-video">
+                    <Image src={haydenImage3} layout="fill" objectFit="cover"/>
+                </div>
             </Container>
 
             <Container className="mb-32 text-center">
-                <section className="flex flex-col gap-4">
+                <section className="flex flex-col gap-8">
                     <header>
                         <h2 className="title-medium">
                             Select Partners
@@ -58,7 +73,7 @@ export default function About() {
             </Container>
 
             <Container className="pb-16 text-center">
-                <section className="flex flex-col gap-4">
+                <section className="flex flex-col gap-8">
                     <header>
                         <h2 className="title-medium">
                             Real Feedback

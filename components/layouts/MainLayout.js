@@ -9,7 +9,7 @@ export default function MainLayout({children, theme = 'black', className = '', p
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
                 <link
-                    href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Mulish:wght@400;1000&family=Work+Sans:wght@800;900&display=swap"
+                    href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Mulish:wght@400;900&family=Work+Sans:wght@800;900&display=swap"
                     rel="stylesheet"/>
             </Head>
             <div

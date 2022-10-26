@@ -15,8 +15,21 @@ export const links = {
             href: '/contact'
         },
         {
-            title: 'English',
-            href: '/en'
+            title: 'Language',
+            href: '/en',
+            type: 'dropdown',
+            items: [
+                {
+                    title: 'English',
+                    href: '/',
+                    locale: 'en'
+                },
+                {
+                    title: 'Čeština',
+                    href: '/',
+                    locale: 'cs'
+                }
+            ]
         },
     ]
 }

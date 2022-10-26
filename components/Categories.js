@@ -7,7 +7,7 @@ export default function Categories({active = 'all', className = '', ...rest}) {
             {getAllCategories().map(({title, slug}, key) => {
                 return (
                     <Link href={slug === 'all' ? '/projects' : '/projects/category/' + slug} key={`Category: ${slug}`}>
-                        <a className={`inline-flex font-extrabold uppercase ${active === slug ? 'border-b-2 border-current' : 'mouse-hover:text-blue-600 transition-colors duration-300'}`}>
+                        <a className={`inline-flex font-extrabold uppercase border-b-2 ${active === slug ? 'border-current' : 'border-transparent mouse-hover:text-blue-600 transition-all duration-300'}`}>
                             {title}
                         </a>
                     </Link>
