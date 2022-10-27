@@ -5,6 +5,7 @@ import imageHayden from "../public/images/hayden4.jpg";
 import Image from "next/image";
 import {getLocaleStrings} from "../helpers/languages";
 import {useRouter} from "next/router";
+import FormContact from "../components/FormContact";
 
 export default function Contact() {
     const lang = getLocaleStrings(useRouter().locale, 'contact');
@@ -89,7 +90,7 @@ export default function Contact() {
                         </h2>
                     </header>
                     <div className="flex-1 lg:pt-6">
-                        [form]
+                        <FormContact/>
                     </div>
                 </section>
             </Container>

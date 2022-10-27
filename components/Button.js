@@ -33,9 +33,6 @@ export default function Button({
         case 'big':
             buttonClasses.push('max-w-[300px]');
             break;
-        case 'big-narrow':
-            buttonClasses.push('max-w-[300px]');
-            break;
         case 'small':
             buttonClasses.push('max-w-[150px]');
             break;

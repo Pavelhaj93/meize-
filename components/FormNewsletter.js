@@ -11,13 +11,13 @@ export default function FormNewsletter() {
     const inputRef = useRef();
     const [email, setEmail] = useState('');
     const [error, setError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(lang.alerts.newsletterError);
+    const [errorMessage, setErrorMessage] = useState(lang.alerts.emailError);
     const [success, setSuccess] = useState(false);
 
     const resetStatuses = () => {
         setSuccess(false);
         setError(false);
-        setErrorMessage(lang.alerts.newsletterError);
+        setErrorMessage(lang.alerts.emailError);
     }
 
     const resetForm = () => {
@@ -61,7 +61,7 @@ export default function FormNewsletter() {
         resetStatuses();
 
         if (!email) {
-            showError(lang.alerts.newsletterError);
+            showError(lang.alerts.emailError);
             return;
         }
 
@@ -90,16 +90,17 @@ export default function FormNewsletter() {
                        onChange={handleInputChange}
                        onBlur={handleInputBlur}
                        ref={inputRef}
+                       className="border-r-0"
                 />
 
 
-                <Alert className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2"
+                <Alert className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2 max-w-[400px]"
                        active={error}
                 >
                     {errorMessage}
                 </Alert>
 
-                <Alert className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2"
+                <Alert className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2 max-w-[400px]"
                        theme="success"
                        active={success}
                 >

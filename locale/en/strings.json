@@ -11,12 +11,20 @@
     "subscribe": "Subscribe",
     "seeAllWork": "See All Work",
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send",
+    "submitting": "Sending..."
   },
   "alerts": {
     "commonError": "Something went wrong, please try again.",
-    "newsletterError": "Please enter a valid email address.",
-    "newsletterSuccess": "Thank you for subscribing!"
+    "newsletterSuccess": "Thank you for subscribing!",
+    "nameError": "Please enter your name.",
+    "emailError": "Please enter a valid e-mail address.",
+    "messageError": "Please enter a message.",
+    "contactSuccess": "Thank you for your message."
   },
   "pages": {
     "about": "About",
