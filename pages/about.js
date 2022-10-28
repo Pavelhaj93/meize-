@@ -5,9 +5,9 @@ import PartnersGrid from "../components/PartnersGrid";
 import TestimonialsCarousel from "../components/TestimonialsCarousel";
 import Image from "next/image";
 
-import haydenImage from "../public/images/hayden3.jpg";
-import haydenImage2 from "../public/images/hayden2.jpg";
-import haydenImage3 from "../public/images/hayden4.jpg";
+import aboutImage from "../public/images/about1.jpg";
+import aboutImage2 from "../public/images/about2.jpg";
+import aboutImage3 from "../public/images/about3.jpg";
 import {getLocaleStrings} from "../helpers/languages";
 import {useRouter} from "next/router";
 
@@ -52,13 +52,13 @@ export default function About() {
 
             <Container className="mb-32 grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="relative aspect-video">
-                    <Image src={haydenImage} layout="fill" objectFit="cover" alt=""/>
+                    <Image src={aboutImage} layout="fill" objectFit="cover" alt=""/>
                 </div>
                 <div className="relative aspect-video">
-                    <Image src={haydenImage2} layout="fill" objectFit="cover" alt=""/>
+                    <Image src={aboutImage2} layout="fill" objectFit="cover" alt=""/>
                 </div>
                 <div className="relative aspect-video">
-                    <Image src={haydenImage3} layout="fill" objectFit="cover" alt=""/>
+                    <Image src={aboutImage3} layout="fill" objectFit="cover" alt=""/>
                 </div>
             </Container>
 
