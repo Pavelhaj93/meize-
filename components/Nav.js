@@ -94,7 +94,7 @@ export default function Nav({theme = 'black', className = ''}) {
                     </div>
                 </Container>
             </nav>
-            <BurgerMenu active={burgerActive}/>
+            <BurgerMenu active={burgerActive} setBurgerActive={setBurgerActive}/>
         </>
     )
 }

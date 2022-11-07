@@ -3,6 +3,7 @@ import {useState} from "react";
 import {getLocaleStrings} from "../helpers/languages";
 import {useRouter} from "next/router";
 import {setLocaleCookies} from "../helpers/cookies";
+import SvgFlag from "./svg/SvgFlag";
 
 export default function LanguageSwitcher({className = '', ...rest}) {
     const {locale, locales, asPath} = useRouter();
@@ -24,9 +25,12 @@ export default function LanguageSwitcher({className = '', ...rest}) {
                 {locales.map((localeItem, key) => {
                     return (
                         <Link href={asPath} locale={localeItem} key={`NavLang: ${localeItem}`}>
-                            <a className="block text-white hover:text-white/60 transition-colors duration-200"
+                            <a className="flex items-center gap-2 text-white hover:text-white/60 transition-colors duration-200"
                                onClick={() => setLocaleCookies(localeItem)}
                             >
+                                <span className="w-3.5 rounded-full overflow-hidden">
+                                    <SvgFlag country={localeItem}/>
+                                </span>
                                 {lang.languages[localeItem]}
                             </a>
                         </Link>

@@ -31,7 +31,7 @@ export default function Contact() {
                 </div>
             </Container>
 
-            <Container className="pt-20 flex flex-col gap-12 lg:gap-28">
+            <Container className="pt-20 flex flex-col gap-28">
                 <section
                     className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-0 max-w-[1000px] mx-auto">
                     <header className="flex-1">
@@ -89,7 +89,7 @@ export default function Contact() {
                             {lang.message}
                         </h2>
                     </header>
-                    <div className="flex-1 lg:pt-6">
+                    <div className="flex-1 lg:pt-6 w-full max-w-[500px] lg:max-w-none">
                         <FormContact/>
                     </div>
                 </section>

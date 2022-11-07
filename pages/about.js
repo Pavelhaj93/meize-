@@ -22,7 +22,7 @@ export default function About() {
             <Container className="first-container">
                 <section className="flex flex-col gap-8">
                     <header className="text-center">
-                        <h1 className="title-big md:max-w-[28ch] mx-auto">
+                        <h1 className="title-big max-w-[18ch] sm:max-w-[23ch] md:max-w-[25ch] mx-auto">
                             <span className="font-sans font-normal"
                                   dangerouslySetInnerHTML={{__html: lang.headline}}
                             />
@@ -34,21 +34,6 @@ export default function About() {
                     </Typo>
                 </section>
             </Container>
-
-            {/*<Container className="py-16">*/}
-            {/*    <header className="text-center flex flex-col gap-4">*/}
-            {/*        <h2 className="title-medium">*/}
-            {/*            Services*/}
-            {/*        </h2>*/}
-            {/*        <Typo className="max-w-[80ch]">*/}
-            {/*            Our family of services gives brands and agencies the opportunity to create cinematic content at*/}
-            {/*            scale and with incredible agility. We offer a highly individualized approach to commercial*/}
-            {/*            production, creative services, and entertainment. Every project is different, and we tailor our*/}
-            {/*            services to the needs of the project.*/}
-            {/*        </Typo>*/}
-            {/*    </header>*/}
-            {/*    <ServicesGrid className="py-16"/>*/}
-            {/*</Container>*/}
 
             <Container className="mb-32 grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="relative aspect-video">
