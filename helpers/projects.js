@@ -27,3 +27,14 @@ export const getProjectBySlug = (slug) => {
 export const getProjectsInReel = () => {
     return getProjectByIds([1, 2, 3, 4]);
 }
+export const getAllCategories = () => {
+    const categories = [];
+    projects.forEach((project) => {
+        project.categories.forEach((category) => {
+            if (!categories.includes(category)) {
+                categories.push(category);
+            }
+        });
+    });
+    return categories;
+};

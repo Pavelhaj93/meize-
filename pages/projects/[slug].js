@@ -27,43 +27,30 @@ export async function getStaticPaths() {
         paths,
         fallback: false,
     };
-
-    return {
-        paths: getAllProjects().map(({slug}) => ({
-            params: {
-                slug
-            }
-        })),
-        fallback: false, // can also be true or 'blocking'
-    }
 }
 
 export async function getStaticProps(context) {
-    console.log('SLUG:');
-    console.log(context.params.slug);
     const project = getProjectBySlug(context.params.slug);
 
     const prevProject = getProjectById(project.id - 1) || null;
     const nextProject = getProjectById(project.id + 1) || null;
 
-    const projectWithDetails = {
-        ...project,
-        prevProject,
-        nextProject
-    };
-
     return {
-        props: {project: projectWithDetails},
+        props: {
+            project,
+            prevProject,
+            nextProject
+        },
     }
 }
 
-export default function ProjectDetail({project}) {
+export default function ProjectDetail({project, prevProject, nextProject}) {
     const lang = getLocaleStrings(useRouter().locale);
 
     return (
         <MainLayout theme="black"
                     paddingTop={true}
-                    title={project.title + ' - Project'}
+                    title={project.title + ' - ' + lang.common.project}
         >
             <article>
                 <Container className="first-container flex flex-col gap-4">
@@ -99,7 +86,9 @@ export default function ProjectDetail({project}) {
 
                 <Container className="pt-20 pb-16 flex flex-col gap-12">
                     <ScreenGrabs slug={project.slug}/>
-                    <ProjectButtons project={project}/>
+                    <ProjectButtons prevProject={prevProject}
+                                    nextProject={nextProject}
+                    />
                 </Container>
             </article>
         </MainLayout>

@@ -1,17 +1,17 @@
 import ButtonPrev from "./ButtonPrev";
 import ButtonNext from "./ButtonNext";
 
-export default function ProjectButtons({project}) {
+export default function ProjectButtons({prevProject, nextProject}) {
     return (
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center text-0 flex-wrap gap-8">
             <div>
-                {project.prevProject && (
-                    <ButtonPrev href={`/projects/${project.prevProject.slug}`}/>
+                {prevProject && (
+                    <ButtonPrev href={`/projects/${prevProject.slug}`}/>
                 )}
             </div>
             <div>
-                {project.nextProject && (
-                    <ButtonNext href={`/projects/${project.nextProject.slug}`}/>
+                {nextProject && (
+                    <ButtonNext href={`/projects/${nextProject.slug}`}/>
                 )}
             </div>
         </div>

@@ -1,28 +1,33 @@
 import Link from "next/link";
 import {useRouter} from "next/router";
 import {getLocaleStrings} from "../helpers/languages";
+import SvgArrow from "./svg/SvgArrow";
 
 function ButtonArrowBody({direction, label}) {
     if (direction === 'previous') {
         return (
             <>
-                <span>[svg]</span>
-                <span>{label}</span>
+                <span>
+                    <SvgArrow direction="left" width={40}/>
+                </span>
+                <span className="text-xl">{label}</span>
             </>
         );
     }
 
     return (
         <>
-            <span>{label}</span>
-            <span>[svg]</span>
+            <span className="text-xl">{label}</span>
+            <span>
+                <SvgArrow direction="right" width={40}/>
+            </span>
         </>
     );
 }
 
 export default function ButtonArrow({href, direction = 'next', className = '', ...rest}) {
     const lang = getLocaleStrings(useRouter().locale, 'common');
-    const buttonClasses = `uppercase font-bold text-xl inline-flex gap-4 mouse-hover:text-blue-600 transition-colors duration-300 rounded-none ${className}`;
+    const buttonClasses = `uppercase font-bold inline-flex items-center gap-4 mouse-hover:text-blue-600 mouse-hover:gap-2 transition-all duration-300 rounded-none ${direction === 'next' ? 'mouse-hover:translate-x-2' : 'mouse-hover:-translate-x-2'} ${className}`;
 
     if (href) {
         return (

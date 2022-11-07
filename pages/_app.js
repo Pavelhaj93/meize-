@@ -1,5 +1,8 @@
-import '../styles/globals.css'
-import {Fragment} from "react";
+import {config} from '@react-spring/web';
+import useScrollTo from 'react-spring-scroll-to-hook';
+
+import '../styles/globals.css';
+import {Fragment, useEffect} from "react";
 import Head from 'next/head';
 import {useRouter} from "next/router";
 
@@ -7,8 +10,22 @@ const baseUrl = 'https://www.meize.com';
 
 
 function MyApp({Component, pageProps}) {
+    const {scrollTo} = useScrollTo();
     const {locales, locale, defaultLocale, asPath} = useRouter();
     const ogUrl = (locale === defaultLocale ? `${baseUrl}${asPath}` : `${baseUrl}${locale}${asPath}`).split('?')[0];
+
+    const router = useRouter();
+
+
+    useEffect(() => {
+
+        router.events.on('routeChangeStart', (url, {shallow}) => {
+            scrollTo(0);
+        })
+        router.events.on('routeChangeComplete', (url, {shallow}) => {
+            console.log(`App is Changed to ${url}`)
+        })
+    }, []);
 
     return (
         <>

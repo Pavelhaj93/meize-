@@ -16,7 +16,8 @@
     "email": "Email",
     "message": "Message",
     "submit": "Send",
-    "submitting": "Sending..."
+    "submitting": "Sending...",
+    "project": "Project"
   },
   "alerts": {
     "commonError": "Something went wrong, please try again.",
@@ -77,7 +78,9 @@
     "creative": "Creative",
     "commercial": "Commercial",
     "events": "Events",
-    "photo": "Photo"
+    "photo": "Photo",
+    "production": "Production",
+    "postproduction": "Postproduction"
   },
   "languages": {
     "en": "English",
