@@ -66,3 +66,8 @@ svg {
 .title-shadow {
     text-shadow: -1px 2px 1px rgba(0, 0, 0, 0.5);
 }
+
+.grecaptcha-badge {
+    @apply opacity-0;
+    @apply pointer-events-none;
+}

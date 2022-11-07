@@ -5,6 +5,8 @@ import {useRouter} from "next/router";
 import {useRef, useState} from "react";
 import Textarea from "./Textarea";
 import Alert from "./Alert";
+import ReCAPTCHA from "react-google-recaptcha";
+
 
 const defaultFormData = {
     name: {
@@ -30,6 +32,7 @@ export default function FormContact() {
     const inputNameRef = useRef();
     const inputEmailRef = useRef();
     const inputMessageRef = useRef();
+    const recaptchaRef = useRef();
 
     const [submitting, setSubmitting] = useState(false);
 
@@ -105,25 +108,33 @@ export default function FormContact() {
         return true;
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        const validated = revalidateInputs();
-
-        if (!validated) return;
+    const onReCAPTCHAChange = async (captchaCode) => {
+        if (!captchaCode) {
+            return;
+        }
 
         setSubmitting(true);
 
-        fetch('/api/contact', {
+        const data = {
+            name: name.value,
+            email: email.value,
+            message: message.value,
+            access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+        }
+
+
+        fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
             },
-            body: JSON.stringify({name, email, message}),
-        }).then((res) => {
+            body: JSON.stringify(data),
+        }).then((res) => res.json()).then((res) => {
             setSubmitting(false);
+            recaptchaRef.current.reset();
 
-            if (res.status === 200) {
+            if (res.success === true) {
                 setSuccess(true);
                 resetForm();
 
@@ -133,11 +144,22 @@ export default function FormContact() {
             } else {
                 setError(true);
             }
+
         }).catch((error) => {
             console.error(error);
             setError(true);
             setSubmitting(false);
+            recaptchaRef.current.reset();
         });
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const validated = revalidateInputs();
+        if (!validated) return;
+
+        recaptchaRef.current.execute();
     }
 
     return (
@@ -145,6 +167,12 @@ export default function FormContact() {
               className={`relative w-full flex flex-col gap-6 ${submitting ? 'opacity-50 pointer-events-none' : ''}`}
               onSubmit={handleSubmit}
         >
+            <ReCAPTCHA
+                ref={recaptchaRef}
+                size="invisible"
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                onChange={onReCAPTCHAChange}
+            />
             <div className="relative flex flex-col gap-1">
                 <label htmlFor="name" className={name.error ? 'text-red-400' : ''}>{lang.common.name} *</label>
                 <Input type="text"
