@@ -15,6 +15,7 @@ export default function Nav({theme = 'black', className = ''}) {
 
     const [scrolled, setScrolled] = useState(false);
     const [burgerActive, setBurgerActive] = useState(false);
+    const [showNavBackground, setShowNavBackground] = useState(theme === 'black' || scrolled);
 
     const themeClasses = theme === 'white' ? 'text-white' : 'text-black';
 
@@ -39,11 +40,15 @@ export default function Nav({theme = 'black', className = ''}) {
         }
     }, [handleResize]);
 
+    useEffect(() => {
+        setShowNavBackground(theme === 'black' || scrolled);
+    }, [burgerActive, scrolled]);
+
     return (
         <>
             <nav className={`fixed top-0 left-0 w-full z-30 ${className}`}>
                 <div
-                    className={`absolute shadow-2xl top-0 left-0 w-full bg-white transition-all duration-500 ${(scrolled && !burgerActive) ? 'h-full' : 'h-0'}`}
+                    className={`absolute shadow-2xl top-0 left-0 w-full bg-white transition-all duration-500 ${(showNavBackground && !burgerActive) ? 'h-full' : 'h-0'}`}
                 />
 
                 <Container className="relative flex items-center justify-between py-4 sm:py-6">
@@ -52,7 +57,7 @@ export default function Nav({theme = 'black', className = ''}) {
                             return (
                                 <NavLink key={`NavLinksRight:${key}`}
                                          href={href}
-                                         className={scrolled ? 'text-black' : themeClasses}
+                                         className={showNavBackground ? 'text-black' : themeClasses}
                                 >
                                     {title(lang)}
                                 </NavLink>
@@ -60,7 +65,7 @@ export default function Nav({theme = 'black', className = ''}) {
                         })}
                     </div>
                     <div
-                        className={`flex-1 sm:flex-none text-center sm:text-left transition-colors duration-300 ${(scrolled || burgerActive) ? 'text-black' : themeClasses}`}
+                        className={`flex-1 sm:flex-none text-center sm:text-left transition-colors duration-300 ${(showNavBackground || burgerActive) ? 'text-black' : themeClasses}`}
                     >
                         <LogoLink/>
                     </div>
@@ -70,14 +75,14 @@ export default function Nav({theme = 'black', className = ''}) {
                             return (
                                 <NavLink key={`NavLinksRight:${key}`}
                                          href={href}
-                                         className={scrolled ? 'text-black' : themeClasses}
+                                         className={showNavBackground ? 'text-black' : themeClasses}
                                 >
                                     {title(lang)}
                                 </NavLink>
                             )
                         })}
 
-                        <LanguageSwitcher className={scrolled ? 'text-black' : themeClasses}/>
+                        <LanguageSwitcher className={showNavBackground ? 'text-black' : themeClasses}/>
                     </div>
 
                     <div className="absolute top-1/2 -translate-y-1/2 right-4 block sm:hidden text-right text-0">

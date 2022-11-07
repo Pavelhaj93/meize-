@@ -9,6 +9,25 @@ import {getLocaleStrings} from "../../helpers/languages";
 import {useRouter} from "next/router";
 
 export async function getStaticPaths() {
+    let paths = [];
+
+    getAllProjects().forEach(({slug}) => {
+        for (const locale of ['cs', 'en']) {
+            paths.push({
+                params: {
+                    slug
+                },
+                locale,
+            });
+        }
+
+    });
+
+    return {
+        paths,
+        fallback: false,
+    };
+
     return {
         paths: getAllProjects().map(({slug}) => ({
             params: {
@@ -20,6 +39,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
+    console.log('SLUG:');
+    console.log(context.params.slug);
     const project = getProjectBySlug(context.params.slug);
 
     const prevProject = getProjectById(project.id - 1) || null;
