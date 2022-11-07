@@ -11,7 +11,20 @@
     "subscribe": "Odebírat",
     "seeAllWork": "Všechny projekty",
     "previous": "Předchozí",
-    "next": "další"
+    "next": "Další",
+    "name": "Jméno",
+    "email": "Email",
+    "message": "Zpráva",
+    "submit": "Odeslat",
+    "submitting": "Odesílám..."
+  },
+  "alerts": {
+    "commonError": "Nastala chyba, zkuste to znova, prosím.",
+    "newsletterSuccess": "Děkujeme za přihlášení k odběru!",
+    "nameError": "Zadejte jméno, prosím.",
+    "emailError": "Zadejte e-mail, prosím.",
+    "messageError": "Zadejte zprávu, prosím.",
+    "contactSuccess": "Děkujeme za vaši zprávu."
   },
   "pages": {
     "about": "O Nás",
@@ -20,9 +33,9 @@
   },
   "about": {
     "title": "O nás",
-    "headline": "<b>Meize</b> je <b>kreativní produkční studio</b>. Precizně dokážeme splnit jakýkoli požadavek a <b>máme rádi výzvy</b>.",
-    "intro": "Spolupracujeme se značkami, agenturami a platformami a vytváříme kampaně, reklamy a značkový obsah s autentičností v jádru. Náš oceněný seznam režisérů představuje novou generaci vypravěčů, kteří pracují napříč komerčními a dokumentárními žánry.",
-    "partners": "Vybraní partneři",
+    "headline": "<b>Meize</b> je <b>kreativní produkce</b>. Precizně splníme jakýkoli požadavek a <b>máme rádi výzvy</b>.",
+    "intro": "Jsme otevřeni všem vašim nápadům. Naše portfolio je široké - od malých projektů až po velké; od reklamy přes dokumentární film až po módní přehlídky či videoklipy. K našim klientům přistupujeme individuálně a vždy plníme jejich přání. Těšíme se, až budeme ztvárňovat i vaši myšlenku.",
+    "partners": "Naši klienti",
     "feedback": "Řekli o nás"
   },
   "projects": {
@@ -35,7 +48,6 @@
     "follow": "Sledujte nás",
     "message": "Napište nám",
     "form": {
-
     }
   },
   "testimonials": [

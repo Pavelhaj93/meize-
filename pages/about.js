@@ -22,14 +22,14 @@ export default function About() {
             <Container className="first-container">
                 <section className="flex flex-col gap-8">
                     <header className="text-center">
-                        <h1 className="title-big md:max-w-[30ch] mx-auto">
+                        <h1 className="title-big md:max-w-[28ch] mx-auto">
                             <span className="font-sans font-normal"
                                   dangerouslySetInnerHTML={{__html: lang.headline}}
                             />
                         </h1>
                     </header>
 
-                    <Typo className="text-center max-w-[65ch]">
+                    <Typo className="text-center max-w-[85ch]">
                         {lang.intro}
                     </Typo>
                 </section>

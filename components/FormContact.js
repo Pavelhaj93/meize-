@@ -8,17 +8,17 @@ import Alert from "./Alert";
 
 const defaultFormData = {
     name: {
-        error: true,
+        error: false,
         value: '',
         validate: (val) => !!val
     },
     email: {
-        error: true,
+        error: false,
         value: '',
         validate: (val) => !!val && val.includes('@')
     },
     message: {
-        error: true,
+        error: false,
         value: '',
         validate: (val) => !!val
     }
@@ -38,9 +38,9 @@ export default function FormContact() {
     const [message, setMessage] = useState(defaultFormData.message);
 
     const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
 
     const resetForm = () => {
-        setSuccess(false);
         setName(defaultFormData.name);
         setEmail(defaultFormData.email);
         setMessage(defaultFormData.message);
@@ -84,30 +84,33 @@ export default function FormContact() {
     }
 
     const revalidateInputs = () => {
-        setName({...name, error: !name.validate(name.value)});
-        setEmail({...email, error: !email.validate(email.value)});
-        setMessage({...message, error: !message.validate(message.value)});
+        if (!name.validate(name.value)) {
+            setName({...name, error: true});
+            inputNameRef.current.focus();
+            return false;
+        }
+
+        if (!email.validate(email.value)) {
+            setEmail({...email, error: true});
+            inputEmailRef.current.focus();
+            return false;
+        }
+
+        if (!message.validate(message.value)) {
+            setMessage({...message, error: true});
+            inputMessageRef.current.focus();
+            return false;
+        }
+
+        return true;
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        revalidateInputs();
+        const validated = revalidateInputs();
 
-        if (name.error) {
-            inputNameRef.current.focus();
-            return;
-        }
-
-        if (email.error) {
-            inputEmailRef.current.focus();
-            return;
-        }
-
-        if (message.error) {
-            inputMessageRef.current.focus();
-            return;
-        }
+        if (!validated) return;
 
         setSubmitting(true);
 
@@ -118,22 +121,32 @@ export default function FormContact() {
             },
             body: JSON.stringify({name, email, message}),
         }).then((res) => {
-            // res.status === 200 ? showSuccess() : showError(lang.alerts.commonError);
-            console.log(res);
             setSubmitting(false);
+
+            if (res.status === 200) {
+                setSuccess(true);
+                resetForm();
+
+                setTimeout(() => {
+                    setSuccess(false);
+                }, 4000);
+            } else {
+                setError(true);
+            }
         }).catch((error) => {
             console.error(error);
+            setError(true);
             setSubmitting(false);
         });
-
     }
 
     return (
-        <form action="" className={`relative w-full flex flex-col gap-6 ${submitting ? 'opacity-50 pointer-events-none' : ''}`}
+        <form action=""
+              className={`relative w-full flex flex-col gap-6 ${submitting ? 'opacity-50 pointer-events-none' : ''}`}
               onSubmit={handleSubmit}
         >
             <div className="relative flex flex-col gap-1">
-                <label htmlFor="name">{lang.common.name} *</label>
+                <label htmlFor="name" className={name.error ? 'text-red-400' : ''}>{lang.common.name} *</label>
                 <Input type="text"
                        id="name"
                        name="name"
@@ -142,18 +155,12 @@ export default function FormContact() {
                        onChange={handleNameChange}
                        onBlur={handleInputBlur}
                        ref={inputNameRef}
+                       error={name.error}
                 />
-
-                <Alert className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2"
-                       active={name.error}
-                       arrow="left"
-                >
-                    {lang.alerts.nameError}
-                </Alert>
             </div>
 
             <div className="relative flex flex-col gap-1">
-                <label htmlFor="email">{lang.common.email} *</label>
+                <label htmlFor="email" className={email.error ? 'text-red-400' : ''}>{lang.common.email} *</label>
                 <Input type="text"
                        id="email"
                        name="email"
@@ -162,18 +169,12 @@ export default function FormContact() {
                        onChange={handleEmailChange}
                        onBlur={handleInputBlur}
                        ref={inputEmailRef}
+                       error={email.error}
                 />
-
-                <Alert className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2"
-                       active={email.error}
-                       arrow="left"
-                >
-                    {lang.alerts.emailError}
-                </Alert>
             </div>
 
             <div className="relative flex flex-col gap-1">
-                <label htmlFor="message">{lang.common.message} *</label>
+                <label htmlFor="message" className={message.error ? 'text-red-400' : ''}>{lang.common.message} *</label>
                 <Textarea
                     id="message"
                     name="message"
@@ -182,14 +183,8 @@ export default function FormContact() {
                     onChange={handleMessageChange}
                     onBlur={handleInputBlur}
                     ref={inputMessageRef}
+                    error={message.error}
                 />
-
-                <Alert className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2"
-                       active={message.error}
-                       arrow="left"
-                >
-                    {lang.alerts.messageError}
-                </Alert>
             </div>
 
 
@@ -203,10 +198,17 @@ export default function FormContact() {
                 >
                     {!submitting ? lang.common.submit : lang.common.submitting}
                 </Button>
+
+                <Alert className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2"
+                       active={error}
+                       arrow="left"
+                >
+                    {lang.alerts.commonError}
+                </Alert>
+
                 <Alert className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2"
                        theme="success"
-                       // active={success}
-                       active={true}
+                       active={success}
                        arrow="left"
                 >
                     {lang.alerts.contactSuccess}
