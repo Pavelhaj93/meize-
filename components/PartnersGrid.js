@@ -1,6 +1,7 @@
 import Image from "next/image";
 import unibrick from "../public/logos/unibrick.png";
 import tekstyl from "../public/logos/tekstyl.png";
+import amos from "../public/logos/amos-academy.png";
 import st from "../public/logos/srovnejto.png";
 import skj from "../public/logos/slavnost-kralovny-johanky.png";
 import pbs from "../public/logos/prague-breakin-school.png";
@@ -23,6 +24,11 @@ const partners = [
         name: 'tekstyl',
         link: 'https://',
         image: tekstyl,
+    },
+    {
+        name: 'Amos Academy',
+        link: 'https://www.amos.academy',
+        image: amos,
     },
     {
         name: 'st',
