@@ -1,6 +1,5 @@
 import Container from "./Container";
 import Button from "./Button";
-import Input from "./Input";
 import {socials} from "../helpers/contacts";
 import {getLocaleStrings} from "../helpers/languages";
 import {useRouter} from "next/router";

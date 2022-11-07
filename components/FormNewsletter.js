@@ -4,11 +4,15 @@ import {getLocaleStrings} from "../helpers/languages";
 import {useRouter} from "next/router";
 import {useRef, useState} from "react";
 import Alert from "./Alert";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function FormNewsletter() {
     const lang = getLocaleStrings(useRouter().locale);
 
     const inputRef = useRef();
+    const recaptchaRef = useRef();
+
+    const [submitting, setSubmitting] = useState(false);
     const [email, setEmail] = useState('');
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState(lang.alerts.emailError);
@@ -56,6 +60,35 @@ export default function FormNewsletter() {
         }, 3000);
     };
 
+    const onReCAPTCHAChange = async (captchaCode) => {
+        if (!captchaCode) {
+            return;
+        }
+
+        setSubmitting(true);
+
+        const data = {
+            email,
+            message: 'NEWSLETTER',
+            access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+        }
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify(data),
+        }).then((res) => res.json()).then((res) => {
+            res.success === true ? showSuccess() : showError(res.message);
+        }).catch((error) => {
+            console.error(error);
+        });
+
+    };
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         resetStatuses();
@@ -65,32 +98,29 @@ export default function FormNewsletter() {
             return;
         }
 
-        fetch('/api/newsletter', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({email}),
-        }).then((res) => {
-            res.status === 200 ? showSuccess() : showError(lang.alerts.commonError);
-        }).catch((error) => {
-            console.error(error);
-        });
-
+        recaptchaRef.current.execute();
     }
 
     return (
         <form action="" className="relative w-full flex items-stretch h-full"
               onSubmit={handleSubmit}
+              noValidate={true}
         >
+            <ReCAPTCHA
+                ref={recaptchaRef}
+                size="invisible"
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                onChange={onReCAPTCHAChange}
+            />
             <div className="relative flex-1">
-                <Input type="text"
+                <Input type="email"
                        placeholder={lang.common.yourEmail}
                        value={email}
                        onChange={handleInputChange}
                        onBlur={handleInputBlur}
                        ref={inputRef}
                        className="border-r-0"
+                       autoComplete="email"
                 />
 
 
