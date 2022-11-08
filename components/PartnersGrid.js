@@ -91,7 +91,7 @@ export default function PartnersGrid({className = '', ...rest}) {
                             className="w-full max-w-[250px] p-5 sm:p-10 h-40 sm:h-52 sm:max-w-1/2 lg:max-w-1/3 xl:max-w-1/5 mouse-hover:scale-105 opacity-60 grayscale mouse-hover:grayscale-0 mouse-hover:opacity-100 transition-all duration-500 will-change-transform flex justify-center items-center"
                         >
                             <div className="relative w-full h-full max-h-32">
-                                <Image src={image} layout="fill" objectFit="contain"/>
+                                <Image src={image} layout="fill" objectFit="contain" alt={name}/>
                             </div>
                         </a>
                     </Link>

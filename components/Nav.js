@@ -42,7 +42,7 @@ export default function Nav({theme = 'black', className = ''}) {
 
     useEffect(() => {
         setShowNavBackground(theme === 'black' || scrolled);
-    }, [burgerActive, scrolled]);
+    }, [burgerActive, scrolled, theme]);
 
     return (
         <>

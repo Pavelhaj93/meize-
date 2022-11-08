@@ -25,7 +25,7 @@ function MyApp({Component, pageProps}) {
         router.events.on('routeChangeComplete', (url, {shallow}) => {
             console.log(`App is Changed to ${url}`)
         })
-    }, []);
+    }, [router.events, scrollTo]);
 
     return (
         <>
