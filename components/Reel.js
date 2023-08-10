@@ -5,7 +5,7 @@ import {useCallback, useEffect, useState} from "react";
 
 let videoInterval;
 
-export default function Reel({images, reels, className = '', ...rest}) {
+export default function Reel({reels, className = '', ...rest}) {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const handleMouseEnter = (index) => {
@@ -21,7 +21,7 @@ export default function Reel({images, reels, className = '', ...rest}) {
 
     const resetInterval = useCallback(() => {
         clearInterval(videoInterval);
-        videoInterval = setInterval(handleIndexChange, 5000);
+        videoInterval = setInterval(handleIndexChange, 6000);
     }, [handleIndexChange]);
 
     useEffect(() => {
@@ -32,19 +32,21 @@ export default function Reel({images, reels, className = '', ...rest}) {
 
     return (
         <section className={`relative w-full bg-black aspect-video ${className}`} {...rest}>
-            {images.map((image, key) => {
+            {reels.map((reel, key) => {
                 return (
                     <div
                         className={`absolute top-0 left-0 w-full h-full bg-black overflow-hidden transition-opacity duration-500 ${key === activeIndex ? 'opacity-100' : 'opacity-0'}`}
                         key={`Image: ${key}`}
                     >
-                        <Image src={image} layout="responsive" objectFit="cover" alt=""/>
+                        <Image src={reel.thumbnail}
+                               alt={reel.title}
+                        />
                         <div className="absolute top-0 left-0 w-full h-full bg-black/50"/>
                     </div>
                 )
             })}
 
-            <video src={reels[activeIndex].reelVideo}
+            <video src={reels[activeIndex].videos.short}
                    className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
                    loop={true}
                    playsInline={true}

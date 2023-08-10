@@ -21,7 +21,7 @@ export default function Home() {
     return (
         <MainLayout theme="white" paddingTop={false}>
             <div className="block lg:hidden">
-                <ReelCarousel reels={reels} images={images}/>
+                <ReelCarousel reels={reels}/>
             </div>
             <div className="hidden lg:block">
                 <Reel reels={reels} images={images}/>

@@ -1,1 +1,4 @@
-# NextJS + Tailwind Basic Boilerplate
+# Todo:
+
+- Modre tlacitko Ozvete se nam - predvyplneny predmet
+- 

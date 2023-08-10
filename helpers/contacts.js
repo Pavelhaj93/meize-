@@ -1,23 +1,23 @@
-export const contacts = [
-    {
-        href: 'tel:+420111111111',
-        title: '+420111111111'
+export const contacts = {
+    email: {
+        href: 'mailto:email@jestehonemame.com',
+        title: 'email@jestehonemame.com'
     },
-    {
-        href: 'mailto:contact@steptstudios.com',
-        title: 'contact@steptstudios.com'
-    },
-];
+    phone: {
+        href: 'tel:+420602333626',
+        title: '+420 602 333 626'
+    }
+};
 
 export const socials = [
     {
         title: 'Instagram',
         href: 'https://instagram.com'
     },
-    // {
-    //     title: 'TikTok',
-    //     href: 'https://tiktok.com'
-    // },
+    {
+        title: 'Vimeo',
+        href: 'https://vimeo.com'
+    },
     {
         title: 'Facebook',
         href: 'https://facebook.com'
@@ -25,5 +25,9 @@ export const socials = [
     {
         title: 'LinkedIn',
         href: 'https://linkedin.com'
+    },
+    {
+        title: 'TikTok',
+        href: 'https://tiktok.com'
     },
 ];

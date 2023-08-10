@@ -4,7 +4,7 @@ import CarouselDots from "./CarouselDots";
 
 let carouselInterval;
 
-export default function ReelCarousel({images, reels, className = '', ...rest}) {
+export default function ReelCarousel({reels, className = '', ...rest}) {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const handleIndexChange = useCallback(() => {
@@ -24,19 +24,22 @@ export default function ReelCarousel({images, reels, className = '', ...rest}) {
 
     return (
         <section className="h-[80vh] bg-black relative overflow-hidden">
-            {images.map((image, key) => {
+            {reels.map((reel, key) => {
                 return (
                     <div
                         className={`absolute top-0 left-0 w-full h-full bg-black overflow-hidden transition-opacity duration-500 ${key === activeIndex ? 'opacity-100' : 'opacity-0'}`}
                         key={`Image: ${key}`}
                     >
-                        <Image src={image} layout="fill" objectFit="cover" alt=""/>
+                        <Image src={reel.thumbnail}
+                               alt={reel.title}
+                               className="absolute top-0 left-0 w-full h-full object-cover object-center"
+                        />
                         <div className="absolute top-0 left-0 w-full h-full bg-black/50"/>
                     </div>
                 )
             })}
 
-            <CarouselDots items={images}
+            <CarouselDots items={reels}
                           active={activeIndex}
                           onClick={(index) => {
                               setActiveIndex(index);

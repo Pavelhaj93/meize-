@@ -17,62 +17,62 @@ import Link from "next/link";
 const partners = [
     {
         name: 'unibrick',
-        link: 'https://',
+        link: 'https://www.unibrick.cz/',
         image: unibrick,
     },
+    // {
+    //     name: 'tekstyl',
+    //     link: 'https://www.tekstyl.cz/',
+    //     image: tekstyl,
+    // },
     {
-        name: 'tekstyl',
-        link: 'https://',
-        image: tekstyl,
-    },
-    {
-        name: 'Amos Academy',
+        name: 'aa',
         link: 'https://www.amos.academy',
         image: amos,
     },
     {
         name: 'st',
-        link: 'https://',
+        link: 'https://www.srovnejto.cz/',
         image: st,
     },
     {
         name: 'skj',
-        link: 'https://',
+        link: 'http://slavnostjohanky.cz/',
         image: skj,
     },
     {
         name: 'pbs',
-        link: 'https://',
+        link: 'https://www.praguebreakinschool.cz/',
         image: pbs,
     },
     {
         name: 'pg',
-        link: 'https://',
+        link: 'https://www.parallelgarden.com/',
         image: pg,
     },
     {
         name: 'kt',
-        link: 'https://',
+        link: 'https://www.klaustimber.cz/',
         image: kt,
     },
     {
         name: 'jad',
-        link: 'https://',
+        link: 'https://www.jencikadcery.cz/',
         image: jad,
     },
     {
         name: 'fs',
-        link: 'https://',
+        link: 'https://werenext.eu/',
         image: fs,
     },
     {
         name: 'avl',
-        link: 'https://',
+        link: 'https://annavonlipa.com/',
         image: avl,
     },
     {
         name: 'af',
-        link: 'https://',
+        link: 'https://www.angusfarm.cz/',
         image: af,
     },
 ];

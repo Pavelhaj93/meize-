@@ -1,8 +1,6 @@
 import MainLayout from "../../components/layouts/MainLayout";
 import Container from "../../components/Container";
 import {getAllProjects, getProjectById, getProjectBySlug} from "../../helpers/projects";
-import Link from "next/link";
-import Hero from "../../components/Hero";
 import ScreenGrabs from "../../components/ScreenGrabs";
 import ProjectButtons from "../../components/ProjectButtons";
 import {getLocaleStrings} from "../../helpers/languages";
@@ -54,22 +52,22 @@ export default function ProjectDetail({project, prevProject, nextProject}) {
         >
             <article>
                 <Container className="first-container flex flex-col gap-4">
-                    <div className="text-center">
-                        {project.categories.map((slug, key) => {
-                            return (
-                                <>
-                                    <Link href={`/projects/category/${slug}`}
-                                          key={`Category: ${key}`}
-                                    >
-                                        <a className="uppercase font-bold text-sm mouse-hover:text-blue-600 transition-colors duration-300">
-                                            {lang.categories[slug]}
-                                        </a>
-                                    </Link>
-                                    {key < project.categories.length - 1 && ', '}
-                                </>
-                            )
-                        })}
-                    </div>
+                    {/*<div className="text-center">*/}
+                    {/*    {project.categories.map((slug, key) => {*/}
+                    {/*        return (*/}
+                    {/*            <>*/}
+                    {/*                <Link href={`/projects/category/${slug}`}*/}
+                    {/*                      key={`Category: ${key}`}*/}
+                    {/*                >*/}
+                    {/*                    <a className="uppercase font-bold text-sm mouse-hover:text-blue-600 transition-colors duration-300">*/}
+                    {/*                        {lang.categories[slug]}*/}
+                    {/*                    </a>*/}
+                    {/*                </Link>*/}
+                    {/*                {key < project.categories.length - 1 && ', '}*/}
+                    {/*            </>*/}
+                    {/*        )*/}
+                    {/*    })}*/}
+                    {/*</div>*/}
 
                     <header className="text-center">
                         <h1 className="title-big">
@@ -82,10 +80,20 @@ export default function ProjectDetail({project, prevProject, nextProject}) {
                     </p>
                 </Container>
 
-                <Hero/>
+                {project.videos.full && (
+                    <div className="relative w-full">
+                        <video src={project.videos.full}
+                               playsInline={true}
+                               muted={true}
+                               loop={true}
+                               autoPlay={true}
+                               className="mx-auto"
+                        />
+                    </div>
+                )}
 
                 <Container className="pt-20 pb-16 flex flex-col gap-12">
-                    <ScreenGrabs slug={project.slug}/>
+                    <ScreenGrabs images={project.screens}/>
                     <ProjectButtons prevProject={prevProject}
                                     nextProject={nextProject}
                     />

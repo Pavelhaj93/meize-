@@ -1,6 +1,6 @@
 import Container from "./Container";
 import Button from "./Button";
-import {socials} from "../helpers/contacts";
+import {contacts, socials} from "../helpers/contacts";
 import {getLocaleStrings} from "../helpers/languages";
 import {useRouter} from "next/router";
 import FormNewsletter from "./FormNewsletter";
@@ -12,19 +12,19 @@ export default function Footer() {
         <footer className="pt-24 pb-6">
             <Container className="flex flex-col lg:flex-row lg:justify-between items-center gap-10 lg:gap-20">
                 <div
-                    className="w-full flex flex-col md:flex-row lg:flex-col xl:flex-row justify-between items-center md:items-stretch lg:items-center xl:items-stretch gap-4">
-                    <Button href="/contact"
+                    className="w-full flex flex-col md:flex-row lg:flex-col xl:flex-row justify-between md:justify-center lg:justify-between items-center md:items-stretch lg:items-center xl:items-stretch gap-4">
+                    <Button href={contacts.email.href}
                             theme="primary"
                             size="custom"
                             textSize="big"
                             padding="custom"
-                            className="p-2.5 md:p-0 lg:p-2.5 xl:p-0 max-w-none md:max-w-[300px] lg:max-w-none xl:max-w-[300px]"
+                            className="p-2.5 max-w-none md:max-w-[300px] lg:max-w-none xl:max-w-[300px]"
                     >
                         {lang.ctaButton}
                     </Button>
-                    <div className="flex-1 w-full">
-                        <FormNewsletter/>
-                    </div>
+                    {/*<div className="flex-1 w-full">*/}
+                    {/*    <FormNewsletter/>*/}
+                    {/*</div>*/}
                 </div>
 
                 <div

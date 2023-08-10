@@ -2,7 +2,6 @@ import MainLayout from "../components/layouts/MainLayout";
 import Container from "../components/Container";
 import Typo from "../components/Typo";
 import PartnersGrid from "../components/PartnersGrid";
-import TestimonialsCarousel from "../components/TestimonialsCarousel";
 import Image from "next/image";
 
 import aboutImage from "../public/images/about1.jpg";
@@ -13,6 +12,7 @@ import {useRouter} from "next/router";
 
 export default function About() {
     const lang = getLocaleStrings(useRouter().locale, 'about');
+    const {locale} = useRouter();
 
     return (
         <MainLayout theme="black"
@@ -20,9 +20,9 @@ export default function About() {
                     title={lang.title}
         >
             <Container className="first-container">
-                <section className="flex flex-col gap-8">
+                <section className="flex flex-col gap-8 mb-24">
                     <header className="text-center">
-                        <h1 className="title-big max-w-[18ch] sm:max-w-[23ch] md:max-w-[25ch] mx-auto">
+                        <h1 className={`title-big max-w-[18ch] sm:max-w-[23ch] ${locale === 'en' ? 'md:max-w-[30ch]' : 'md:max-w-[27ch]'} mx-auto`}>
                             <span className="font-sans font-normal"
                                   dangerouslySetInnerHTML={{__html: lang.headline}}
                             />
@@ -31,6 +31,20 @@ export default function About() {
 
                     <Typo className="text-center max-w-[85ch]">
                         {lang.intro}
+                    </Typo>
+                </section>
+
+                <section className="flex flex-col gap-8">
+                    <header className="text-center">
+                        <h2 className="title-medium max-w-[18ch] sm:max-w-[23ch] md:max-w-[30ch] mx-auto">
+                            <span className="font-sans font-bold"
+                                  dangerouslySetInnerHTML={{__html: lang.subheadline}}
+                            />
+                        </h2>
+                    </header>
+
+                    <Typo className="text-center max-w-[84ch]">
+                        {lang.subintro}
                     </Typo>
                 </section>
             </Container>
@@ -47,7 +61,7 @@ export default function About() {
                 </div>
             </Container>
 
-            <Container className="mb-32 text-center">
+            <Container className="text-center">
                 <section className="flex flex-col gap-8">
                     <header>
                         <h2 className="title-medium">
@@ -58,17 +72,17 @@ export default function About() {
                 </section>
             </Container>
 
-            <Container className="pb-16 text-center">
-                <section className="flex flex-col gap-8">
-                    <header>
-                        <h2 className="title-medium">
-                            {lang.feedback}
-                        </h2>
-                    </header>
+            {/*<Container className="pb-16 text-center">*/}
+            {/*    <section className="flex flex-col gap-8">*/}
+            {/*        <header>*/}
+            {/*            <h2 className="title-medium">*/}
+            {/*                {lang.feedback}*/}
+            {/*            </h2>*/}
+            {/*        </header>*/}
 
-                    <TestimonialsCarousel/>
-                </section>
-            </Container>
+            {/*        <TestimonialsCarousel/>*/}
+            {/*    </section>*/}
+            {/*</Container>*/}
 
 
         </MainLayout>
