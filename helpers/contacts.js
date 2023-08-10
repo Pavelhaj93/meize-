@@ -1,7 +1,7 @@
 export const contacts = {
     email: {
-        href: 'mailto:email@jestehonemame.com',
-        title: 'email@jestehonemame.com'
+        href: 'mailto:info@meize.cz',
+        title: 'info@meize.cz'
     },
     phone: {
         href: 'tel:+420602333626',
