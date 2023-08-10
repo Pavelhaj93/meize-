@@ -47,34 +47,34 @@ export default function Contact() {
                     </div>
                 </section>
 
-                <section
-                    className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-0 max-w-[1000px] mx-auto">
-                    <header className="flex-1">
-                        <h2 className="title-medium md:leading-none">
-                            {lang.follow}
-                        </h2>
-                    </header>
-                    <div className="flex-1 flex flex-col lg:flex-row items-center flex-wrap gap-4 lg:pt-6">
-                        {socials.map(({href, title}, key) => {
-                            return (
-                                <>
-                                    <a href={href}
-                                       className="inline-flex text-black mouse-hover:text-blue-600 transition-colors duration-300 uppercase font-bold text-xl leading-none"
-                                       key={`Contacts: ${key}`}
-                                       target="_blank"
-                                       rel="nofollow noreferrer"
-                                    >
-                                        {title}
-                                    </a>
-                                    {key !== socials.length - 1 && (
-                                        <span
-                                            className="hidden lg:inline-flex text-black/30 font-bold text-xl leading-none relative -top-0.5">|</span>
-                                    )}
-                                </>
-                            )
-                        })}
-                    </div>
-                </section>
+                {/*<section*/}
+                {/*    className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-0 max-w-[1000px] mx-auto">*/}
+                {/*    <header className="flex-1">*/}
+                {/*        <h2 className="title-medium md:leading-none">*/}
+                {/*            {lang.follow}*/}
+                {/*        </h2>*/}
+                {/*    </header>*/}
+                {/*    <div className="flex-1 flex flex-col lg:flex-row items-center flex-wrap gap-4 lg:pt-6">*/}
+                {/*        {socials.map(({href, title}, key) => {*/}
+                {/*            return (*/}
+                {/*                <>*/}
+                {/*                    <a href={href}*/}
+                {/*                       className="inline-flex text-black mouse-hover:text-blue-600 transition-colors duration-300 uppercase font-bold text-xl leading-none"*/}
+                {/*                       key={`Contacts: ${key}`}*/}
+                {/*                       target="_blank"*/}
+                {/*                       rel="nofollow noreferrer"*/}
+                {/*                    >*/}
+                {/*                        {title}*/}
+                {/*                    </a>*/}
+                {/*                    {key !== socials.length - 1 && (*/}
+                {/*                        <span*/}
+                {/*                            className="hidden lg:inline-flex text-black/30 font-bold text-xl leading-none relative -top-0.5">|</span>*/}
+                {/*                    )}*/}
+                {/*                </>*/}
+                {/*            )*/}
+                {/*        })}*/}
+                {/*    </div>*/}
+                {/*</section>*/}
 
                 <section
                     className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-0 max-w-[1000px] mx-auto">

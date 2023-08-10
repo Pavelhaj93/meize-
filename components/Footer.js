@@ -27,21 +27,21 @@ export default function Footer() {
                     {/*</div>*/}
                 </div>
 
-                <div
-                    className="flex flex-wrap lg:flex-nowrap justify-center sm:justify-start items-center gap-y-4 gap-x-10 md:gap-4 xl:gap-10">
-                    {socials.map(({href, title}, key) => {
-                        return (
-                            <a href={href}
-                               target="_blank"
-                               rel="nofollow noreferrer"
-                               className="uppercase font-extrabold tracking-tight2 text-lg mouse-hover:text-blue-600 transition-colors duration-300"
-                               key={`FooterSocial: ${key}`}
-                            >
-                                {title}
-                            </a>
-                        )
-                    })}
-                </div>
+                {/*<div*/}
+                {/*    className="flex flex-wrap lg:flex-nowrap justify-center sm:justify-start items-center gap-y-4 gap-x-10 md:gap-4 xl:gap-10">*/}
+                {/*    {socials.map(({href, title}, key) => {*/}
+                {/*        return (*/}
+                {/*            <a href={href}*/}
+                {/*               target="_blank"*/}
+                {/*               rel="nofollow noreferrer"*/}
+                {/*               className="uppercase font-extrabold tracking-tight2 text-lg mouse-hover:text-blue-600 transition-colors duration-300"*/}
+                {/*               key={`FooterSocial: ${key}`}*/}
+                {/*            >*/}
+                {/*                {title}*/}
+                {/*            </a>*/}
+                {/*        )*/}
+                {/*    })}*/}
+                {/*</div>*/}
             </Container>
         </footer>
     )
