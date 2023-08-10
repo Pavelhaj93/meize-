@@ -30,9 +30,16 @@ export default function ReelCarousel({reels, className = '', ...rest}) {
                         className={`absolute top-0 left-0 w-full h-full bg-black overflow-hidden transition-opacity duration-500 ${key === activeIndex ? 'opacity-100' : 'opacity-0'}`}
                         key={`Image: ${key}`}
                     >
-                        <Image src={reel.thumbnail}
-                               alt={reel.title}
-                               className="absolute top-0 left-0 w-full h-full object-cover object-center"
+                        {/*<Image src={reel.thumbnail}*/}
+                        {/*       alt={reel.title}*/}
+                        {/*       className="absolute top-0 left-0 w-full h-full object-cover object-center"*/}
+                        {/*/>*/}
+                        <video src={reel.videos.short}
+                               className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
+                               loop={true}
+                               playsInline={true}
+                               muted={true}
+                               autoPlay={true}
                         />
                         <div className="absolute top-0 left-0 w-full h-full bg-black/50"/>
                     </div>

@@ -26,16 +26,15 @@ export default function Reel({reels, className = '', ...rest}) {
 
     useEffect(() => {
         resetInterval();
-
         return () => clearInterval(videoInterval);
     }, [resetInterval]);
 
     return (
-        <section className={`relative w-full bg-black aspect-video ${className}`} {...rest}>
+        <section className={`relative w-full bg-black pt-[56.25%] ${className}`} {...rest}>
             {reels.map((reel, key) => {
                 return (
                     <div
-                        className={`absolute top-0 left-0 w-full h-full bg-black overflow-hidden transition-opacity duration-500 ${key === activeIndex ? 'opacity-100' : 'opacity-0'}`}
+                        className={`absolute top-0 left-0 w-full h-full bg-black overflow-hidden transition-opacity duration-500 ${key === activeIndex ? '' : 'opacity-0 pointer-events-none'}`}
                         key={`Image: ${key}`}
                     >
                         <Image src={reel.thumbnail}
