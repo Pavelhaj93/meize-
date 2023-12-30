@@ -5,6 +5,8 @@
     "description": ""
   },
   "common": {
+    "en": "EN",
+    "cs": "CZ",
     "language": "Jazyk",
     "ctaButton": "Ozvěte se nám",
     "yourEmail": "Váš e-mail",
@@ -34,10 +36,10 @@
   },
   "about": {
     "title": "O nás",
-    "headline": "<b>MEIZE kreativní produkční studio</b>, které přijímá <b>výzvy</b> a realizuje vaše <b>vize</b>.",
+    "headline": "<b>MEIZE. kreativní produkce</b>, která přijímá <b>výzvy</b> a realizuje vaše <b>vize</b>.",
     "intro": "Jsme otevřeni všem vašim nápadům. Naše portfolio zahrnuje širokou škálu projektů; od reklamy přes dokumentární filmy až po módní přehlídky či videoklipy. Ke klientům přistupujeme individuálně a vždy plníme jejich přání. Těšíme se, až budeme ztvárňovat i vaši myšlenku.",
     "subheadline": "Služby",
-    "subintro": "Široká nabídka služeb ve studiu Meize dává klientům možnost realizovat jejich nápady na jednom místě. Každý projekt je odlišný, my se ovšem vždy přizpůsobujeme jeho potřebám. Naše kombinace technických dovedností, kreativity, pružnosti a pozornosti k detailu vytváří obsah, který rezonuje s vaším publikem.",
+    "subintro": "Široká nabídka služeb produkce Meize dává klientům možnost realizovat jejich nápady na jednom místě. Každý projekt je odlišný, my se ovšem vždy přizpůsobujeme jeho potřebám. Naše kombinace technických dovedností, kreativity, pružnosti a pozornosti k detailu vytváří obsah, který rezonuje s vaším publikem.",
     "partners": "Vybraní partneři",
     "feedback": "Zpětné vazby"
   },
@@ -52,8 +54,7 @@
     "phone": "tel.",
     "follow": "Sledujte nás",
     "message": "Pošlete nám zprávu",
-    "form": {
-    }
+    "form": {}
   },
   "testimonials": [
     {

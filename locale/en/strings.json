@@ -5,6 +5,8 @@
     "description": ""
   },
   "common": {
+    "en": "EN",
+    "cs": "CS",
     "language": "Language",
     "ctaButton": "Get In Touch",
     "yourEmail": "Your e-mail",
@@ -34,10 +36,10 @@
   },
   "about": {
     "title": "About Us",
-    "headline": "<b>MEIZE</b> a <b>creative production studio</b> that embraces <b>challenges</b> and brings your <b>visions</b> to life.",
+    "headline": "<b>MEIZE.</b> a <b>creative production</b> that embraces <b>challenges</b> and brings your <b>visions</b> to life.",
     "intro": "We are open to all your ideas. Our portfolio includes a wide range of projects, from commercials to documentary films, fashion shows, and music videos. We approach clients individually and always fulfill their wishes. We look forward to portraying your idea as well.",
     "subheadline": "Services",
-    "subintro": "The wide range of services offered at Meize Studio gives clients the opportunity to bring their ideas to life in one place. Every project is unique, and we always adapt to its needs. Our combination of technical skills, creativity, flexibility, and attention to detail creates content that resonates with your audience.",
+    "subintro": "The wide range of services offered at Meize production gives clients the opportunity to bring their ideas to life in one place. Every project is unique, and we always adapt to its needs. Our combination of technical skills, creativity, flexibility, and attention to detail creates content that resonates with your audience.",
     "partners": "Selected Partners",
     "feedback": "Feedbacks"
   },
@@ -52,8 +54,7 @@
     "phone": "phone",
     "follow": "Follow Us",
     "message": "Message Us",
-    "form": {
-    }
+    "form": {}
   },
   "testimonials": [
     {
