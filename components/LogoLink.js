@@ -13,11 +13,11 @@ export default function LogoLink({ logoColor, className = "", ...rest }) {
         onMouseLeave={() => setIsHovered(false)}
         {...rest}
       >
-        {/* <Image
+        <Image
           src={`/logos/meize-logo-${isHovered ? "orange" : logoColor}.svg`}
           width={150}
           height={100}
-        /> */}
+        />
       </a>
     </Link>
   );
