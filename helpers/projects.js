@@ -122,7 +122,7 @@ const projects = [
     slug: "angus-farm",
     thumbnail: imageAngusFarm,
     videos: {
-      short: "/projects/angus-farm/angus-farm_short.mp4",
+      short: "/projects/angus-farm/angus-farm-short_new.mp4",
       full: "/projects/angus-farm/angus-farm_full.mp4",
     },
     categories: ["creative", "commercial"],

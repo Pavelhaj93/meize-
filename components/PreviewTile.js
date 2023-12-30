@@ -42,7 +42,7 @@ export default function PreviewTile({
         {videos.short && (
           <video
             src={videos.short}
-            className={`absolute top-0 left-0 w-full h-full bg-blue-600/60 ${
+            className={`absolute top-0 left-0 w-full h-full bg-primary/60 ${
               hovered ? "opacity-100" : "opacity-0 pointer-events-none"
             } transition-opacity duration-300`}
             ref={videoRef}
@@ -54,7 +54,7 @@ export default function PreviewTile({
 
         {!videos.short && (
           <div
-            className={`absolute top-0 left-0 w-full h-full flex items-center justify-center bg-blue-600/60 font-sans-alt uppercase font-bold tracking-tight text-2xl p-4 text-center transition-opacity duration-300 ${
+            className={`absolute top-0 left-0 w-full h-full flex items-center justify-center bg-primary/60 font-sans-alt uppercase font-bold tracking-tight text-2xl p-4 text-center transition-opacity duration-300 ${
               hovered ? "" : "opacity-0"
             }`}
           >
