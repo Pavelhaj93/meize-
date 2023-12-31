@@ -9,6 +9,7 @@ import ScreenGrabs from "../../components/ScreenGrabs";
 import ProjectButtons from "../../components/ProjectButtons";
 import { getLocaleStrings } from "../../helpers/languages";
 import { useRouter } from "next/router";
+import Vimeo from "@u-wave/react-vimeo";
 
 export async function getStaticPaths() {
   let paths = [];
@@ -82,22 +83,27 @@ export default function ProjectDetail({ project, prevProject, nextProject }) {
           </p>
         </Container>
 
-        {project.videos.full && (
-          <div className="relative w-full">
-            <video
-              src={project.videos.full}
+        <Container className="md:px-14 px-4">
+          {project.videos.vimeoId && (
+            <Vimeo
+              video={project.videos.vimeoId}
               playsInline={true}
               muted={true}
+              responsive={true}
               loop={true}
-              autoPlay={true}
+              autoplay={true}
               className="mx-auto"
+              onError={(err) => console.log(err)}
+            />
+          )}
+
+          <div className="pt-20 gap-12 flex flex-col">
+            <ScreenGrabs images={project.screens} />
+            <ProjectButtons
+              prevProject={prevProject}
+              nextProject={nextProject}
             />
           </div>
-        )}
-
-        <Container className="pt-20 pb-16 flex flex-col gap-12">
-          <ScreenGrabs images={project.screens} />
-          <ProjectButtons prevProject={prevProject} nextProject={nextProject} />
         </Container>
       </article>
     </MainLayout>

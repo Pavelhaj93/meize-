@@ -68,6 +68,7 @@ const projects = [
     videos: {
       short: "/projects/anna-von-lipa/anna-von-lipa_short.mp4",
       full: "/projects/anna-von-lipa/anna-von-lipa_full.mp4",
+      vimeoId: "891018959",
     },
     categories: ["creative"],
     screens: [
@@ -112,6 +113,7 @@ const projects = [
     videos: {
       short: "/projects/trezor/trezor_short.mp4",
       full: "/projects/trezor/trezor_full.mp4",
+      vimeoId: "892186319",
     },
     categories: ["production", "postproduction"],
     screens: [imageTrezorScreen01, imageTrezorScreen02, imageTrezorScreen03],
@@ -124,6 +126,7 @@ const projects = [
     videos: {
       short: "/projects/angus-farm/angus-farm_short.mp4",
       full: "/projects/angus-farm/angus-farm_full.mp4",
+      vimeoId: "891063117",
     },
     categories: ["creative", "commercial"],
     screens: [
@@ -146,6 +149,7 @@ const projects = [
     videos: {
       short: "/projects/klaus-timber/klaus-timber_short.mp4",
       full: "/projects/klaus-timber/klaus-timber_full.mp4",
+      vimeoId: "892875702",
     },
     categories: ["commercial"],
     screens: [
@@ -168,6 +172,7 @@ const projects = [
     videos: {
       short: "/projects/were-next/were-next_short.mp4",
       full: "/projects/were-next/were-next_full.mp4",
+      vimeoId: "892197628",
     },
     categories: ["production", "postproduction"],
     screens: [
@@ -185,7 +190,7 @@ const projects = [
 ];
 
 export const getAllProjects = () => {
-  return projects.reverse();
+  return projects;
 };
 
 export const getFeaturedProjects = () => {
