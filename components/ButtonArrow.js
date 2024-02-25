@@ -7,8 +7,11 @@ function ButtonArrowBody({ direction, label }) {
   if (direction === "previous") {
     return (
       <>
-        <span>
-          <SvgArrow direction="left" width={40} />
+        <span className="sm:hidden">
+          <SvgArrow direction="left" size="small" />
+        </span>
+        <span className="hidden md:block">
+          <SvgArrow direction="left" size="large" />
         </span>
         <span className="text-xl">{label}</span>
       </>
@@ -18,19 +21,18 @@ function ButtonArrowBody({ direction, label }) {
   return (
     <>
       <span className="text-xl">{label}</span>
-      <span>
-        <SvgArrow direction="right" width={40} />
+      <span className="sm:hidden">
+        <SvgArrow direction="right" size="small" />
+      </span>
+      <span className="hidden md:block">
+        <SvgArrow direction="right" size="large" />
       </span>
     </>
   );
 }
 
-export default function ButtonArrow({
-  href,
-  direction = "next",
-  className = "",
-  ...rest
-}) {
+const ButtonArrow = ({ href, direction = "next", className = "", ...rest }) => {
+  // const { isMobile } = useViewportWidth();
   const lang = getLocaleStrings(useRouter().locale, "common");
   const buttonClasses = `uppercase font-bold inline-flex items-center gap-4 mouse-hover:text-primary mouse-hover:gap-2 transition-all duration-300 rounded-none ${
     direction === "next"
@@ -53,4 +55,6 @@ export default function ButtonArrow({
       <ButtonArrowBody direction={direction} />
     </button>
   );
-}
+};
+
+export default ButtonArrow;

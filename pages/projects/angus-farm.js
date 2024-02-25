@@ -1,3 +1,5 @@
+// angus-farm.js
+
 import Vimeo from "@u-wave/react-vimeo";
 import { useRouter } from "next/router";
 import Container from "../../components/Container";
@@ -5,48 +7,24 @@ import ProjectButtons from "../../components/ProjectButtons";
 import ScreenGrabs from "../../components/ScreenGrabs";
 import MainLayout from "../../components/layouts/MainLayout";
 import { getLocaleStrings } from "../../helpers/languages";
-import {
-  getAllProjects,
-  getProjectById,
-  getProjectBySlug,
-} from "../../helpers/projects";
+import { getProjectById, getProjectBySlug } from "../../helpers/projects"; // Import the necessary function
 
-export async function getStaticPaths() {
-  let paths = [];
-
-  getAllProjects().forEach(({ slug }) => {
-    for (const locale of ["cs", "en"]) {
-      paths.push({
-        params: {
-          slug,
-        },
-        locale,
-      });
-    }
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps(context) {
-  const project = getProjectBySlug(context.params.slug);
+export async function getStaticProps() {
+  // Fetch the "angus-farm" project directly by its ID or any unique identifier
+  const project = getProjectBySlug("angus-farm"); // Adjust this according to your project data structure
 
   const prevProject = getProjectById(project.id - 1) || null;
   const nextProject = getProjectById(project.id + 1) || null;
-
   return {
     props: {
       project,
-      prevProject,
-      nextProject,
+      prevProject: prevProject,
+      nextProject: nextProject,
     },
   };
 }
 
-export default function ProjectDetail({ project, prevProject, nextProject }) {
+export default function AngusFarm({ project, prevProject, nextProject }) {
   const lang = getLocaleStrings(useRouter().locale);
 
   return (
@@ -57,23 +35,6 @@ export default function ProjectDetail({ project, prevProject, nextProject }) {
     >
       <article>
         <Container className="first-container flex flex-col gap-4">
-          {/*<div className="text-center">*/}
-          {/*    {project.categories.map((slug, key) => {*/}
-          {/*        return (*/}
-          {/*            <>*/}
-          {/*                <Link href={`/projects/category/${slug}`}*/}
-          {/*                      key={`Category: ${key}`}*/}
-          {/*                >*/}
-          {/*                    <a className="uppercase font-bold text-sm mouse-hover:text-primary transition-colors duration-300">*/}
-          {/*                        {lang.categories[slug]}*/}
-          {/*                    </a>*/}
-          {/*                </Link>*/}
-          {/*                {key < project.categories.length - 1 && ', '}*/}
-          {/*            </>*/}
-          {/*        )*/}
-          {/*    })}*/}
-          {/*</div>*/}
-
           <header className="text-center">
             <h1 className="title-big">{project.title}</h1>
           </header>

@@ -15,7 +15,7 @@ export default function CarouselNav({
           <button
             onClick={() => onClick(key)}
             key={`TestimonialNav: ${key}`}
-            className={`inline-flex w-12 rounded-full aspect-square bg-transparent inline-flex items-center justify-center leading-none border ${
+            className={`inline-flex w-12 rounded-full aspect-square bg-transparent items-center justify-center leading-none border ${
               active === key
                 ? "border-primary text-primary"
                 : "border-black/50 text-black/50 mouse-hover:border-primary mouse-hover:text-primary"

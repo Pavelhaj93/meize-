@@ -1,67 +1,65 @@
-import {config} from '@react-spring/web';
-import useScrollTo from 'react-spring-scroll-to-hook';
+import useScrollTo from "react-spring-scroll-to-hook";
 
-import '../styles/globals.css';
-import {Fragment, useEffect} from "react";
-import Head from 'next/head';
-import {useRouter} from "next/router";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { Fragment, useEffect } from "react";
+import "../styles/globals.css";
 
-const baseUrl = 'https://www.meize.com';
+const baseUrl = "https://www.meize.com";
 
+function MyApp({ Component, pageProps }) {
+  const { scrollTo } = useScrollTo();
+  const { locales, locale, defaultLocale, asPath } = useRouter();
+  const ogUrl = (
+    locale === defaultLocale
+      ? `${baseUrl}${asPath}`
+      : `${baseUrl}${locale}${asPath}`
+  ).split("?")[0];
 
-function MyApp({Component, pageProps}) {
-    const {scrollTo} = useScrollTo();
-    const {locales, locale, defaultLocale, asPath} = useRouter();
-    const ogUrl = (locale === defaultLocale ? `${baseUrl}${asPath}` : `${baseUrl}${locale}${asPath}`).split('?')[0];
+  const router = useRouter();
 
-    const router = useRouter();
+  useEffect(() => {
+    router.events.on("routeChangeStart", (url, { shallow }) => {
+      scrollTo(0);
+    });
+    router.events.on("routeChangeComplete", (url, { shallow }) => {
+      console.log(`App is Changed to ${url}`);
+    });
+  }, [router.events, scrollTo]);
 
+  return (
+    <>
+      <Head>
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#222222" />
+        <meta name="msapplication-TileColor" content="#222222" />
+        <meta name="theme-color" content="#222222" />
 
-    useEffect(() => {
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={ogUrl} />
+        <meta property="og:image" content="/favicon/kelimek.ico " />
 
-        router.events.on('routeChangeStart', (url, {shallow}) => {
-            scrollTo(0);
-        })
-        router.events.on('routeChangeComplete', (url, {shallow}) => {
-            console.log(`App is Changed to ${url}`)
-        })
-    }, [router.events, scrollTo]);
+        <link rel="canonical" href={ogUrl} />
 
-    return (
-        <>
-            <Head>
-                <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
-                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-                <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
-                <link rel="manifest" href="/site.webmanifest"/>
-                <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#222222"/>
-                <meta name="msapplication-TileColor" content="#222222"/>
-                <meta name="theme-color" content="#222222"/>
+        {locales.map((lang) => {
+          const path = asPath === "/" ? "" : asPath;
+          const langPath = lang === defaultLocale ? "" : `/${lang}`;
+          const url = `${baseUrl}${langPath}${path}`;
 
-                <meta property="og:type" content="website"/>
-                <meta property="og:url" content={ogUrl}/>
+          return (
+            <Fragment key={`LinkAlternate: ${lang}`}>
+              {lang === defaultLocale && (
+                <link rel="alternate" href={url} hrefLang="x-default" />
+              )}
+              <link rel="alternate" href={url} hrefLang={lang} />
+            </Fragment>
+          );
+        })}
+      </Head>
 
-                <link rel="canonical" href={ogUrl}/>
-
-                {locales.map((lang) => {
-                    const path = asPath === '/' ? '' : asPath;
-                    const langPath = lang === defaultLocale ? '' : `/${lang}`;
-                    const url = `${baseUrl}${langPath}${path}`;
-
-                    return (
-                        <Fragment key={`LinkAlternate: ${lang}`}>
-                            {lang === defaultLocale && (
-                                <link rel="alternate" href={url} hrefLang="x-default"/>
-                            )}
-                            <link rel="alternate" href={url} hrefLang={lang}/>
-                        </Fragment>
-                    )
-                })}
-            </Head>
-
-            <Component {...pageProps} />
-        </>
-    )
+      <Component {...pageProps} />
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;

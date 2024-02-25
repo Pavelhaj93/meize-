@@ -1,9 +1,9 @@
-import Nav from "../Nav";
-import Footer from "../Footer";
 import Head from "next/head";
-import { generateTitle } from "../../helpers/meta";
-import { getLocaleStrings } from "../../helpers/languages";
 import { useRouter } from "next/router";
+import { getLocaleStrings } from "../../helpers/languages";
+import { generateTitle } from "../../helpers/meta";
+import Footer from "../Footer";
+import Nav from "../Nav";
 
 export default function MainLayout({
   children,

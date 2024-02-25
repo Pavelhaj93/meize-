@@ -10,7 +10,7 @@ export default forwardRef(function Textarea(
 
   return (
     <textarea
-      className={`block w-full border rounded-none py-2 px-4 text-base resize-y block min-h-[150px] focus:outline-none transition-colors duration-300 ${colorClasses} ${className}`}
+      className={`block w-full border rounded-none py-2 px-4 text-base resize-y min-h-[150px] focus:outline-none transition-colors duration-300 ${colorClasses} ${className}`}
       {...rest}
       ref={ref}
     />
