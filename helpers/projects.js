@@ -1,9 +1,8 @@
 import imageAngusFarm from "../public/projects/angus-farm/thumbnail.jpg";
 import imageAnnaVonLipa from "../public/projects/anna-von-lipa/thumbnail.jpg";
-import imageKlausTimber from "../public/projects/klaus-timber/thumbnail.jpg";
-import imageWereNext from "../public/projects/were-next/thumbnail.jpg";
-import imageTrezor from "../public/projects/trezor/thumbnail.jpg";
 import imageSawsane from "../public/projects/sawsane/thumbnail.jpg";
+import imageTrezor from "../public/projects/trezor/thumbnail.jpg";
+import imageWereNext from "../public/projects/were-next/thumbnail.jpg";
 
 import imageAnnaVonLipaScreen01 from "../public/projects/anna-von-lipa/screens/01.jpg";
 import imageAnnaVonLipaScreen02 from "../public/projects/anna-von-lipa/screens/02.jpg";
@@ -58,6 +57,15 @@ import imageSawsaneScreen06 from "../public/projects/sawsane/screens/06.jpg";
 import imageSawsaneScreen07 from "../public/projects/sawsane/screens/07.jpg";
 import imageSawsaneScreen08 from "../public/projects/sawsane/screens/08.jpg";
 import imageSawsaneScreen09 from "../public/projects/sawsane/screens/09.jpg";
+
+import gif1AF from "../public/projects/angus-farm/gifs/gif1-AF.gif";
+import gif2AF from "../public/projects/angus-farm/gifs/gif2-AF.gif";
+import gif3AF from "../public/projects/angus-farm/gifs/gif3-AF.gif";
+import gif4AF from "../public/projects/angus-farm/gifs/gif4-AF.gif";
+
+import gif1 from "../public/projects/were-next/gifs/gif1.gif";
+import gif2 from "../public/projects/were-next/gifs/gif2.gif";
+import gif3 from "../public/projects/were-next/gifs/gif3.gif";
 
 const projects = [
   {
@@ -126,7 +134,9 @@ const projects = [
     videos: {
       short: "/projects/angus-farm/angus-farm_short.mp4",
       full: "/projects/angus-farm/angus-farm_full.mp4",
-      vimeoId: "891063117",
+      vimeoId1: "891063117",
+      vimeoId2: "887333055",
+      vimeoId3: "891028950",
     },
     categories: ["creative", "commercial"],
     screens: [
@@ -140,12 +150,13 @@ const projects = [
       imageAngusFarmScreen08,
       imageAngusFarmScreen09,
     ],
+    gifs: [gif1AF, gif2AF, gif3AF, gif4AF],
   },
   {
     id: 5,
     title: "Klaus Timber",
     slug: "klaus-timber",
-    thumbnail: imageKlausTimber,
+    thumbnail: imageKlausTimberScreen05,
     videos: {
       short: "/projects/klaus-timber/klaus-timber_short.mp4",
       full: "/projects/klaus-timber/klaus-timber_full.mp4",
@@ -186,6 +197,7 @@ const projects = [
       imageWereNextScreen08,
       imageWereNextScreen09,
     ],
+    gifs: [gif1, gif2, gif3],
   },
 ];
 

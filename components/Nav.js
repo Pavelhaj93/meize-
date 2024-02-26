@@ -1,13 +1,13 @@
-import Container from "./Container";
+import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
+import { getLocaleStrings } from "../helpers/languages";
+import { links } from "../helpers/nav";
 import { getScrolledFromTop } from "../helpers/scroll";
-import LogoLink from "./LogoLink";
 import BurgerButton from "./BurgerButton";
 import BurgerMenu from "./BurgerMenu";
-import { links } from "../helpers/nav";
-import { useRouter } from "next/router";
-import { getLocaleStrings } from "../helpers/languages";
+import Container from "./Container";
 import LanguageSwitcher from "./LanguageSwitcher";
+import LogoLink from "./LogoLink";
 import NavLink from "./NavLink";
 
 export default function Nav({ theme = "black", className = "" }) {
@@ -55,8 +55,8 @@ export default function Nav({ theme = "black", className = "" }) {
           }`}
         />
 
-        <Container className="relative flex items-center justify-between py-4 sm:py-6">
-          <div className="flex-1 hidden sm:flex  items-center gap-16">
+        <Container className="relative flex items-center justify-between sm:py-1">
+          <div className="flex-1 hidden sm:flex items-center gap-16">
             {links.left.map(({ href, title }, key) => {
               return (
                 <NavLink
@@ -74,7 +74,9 @@ export default function Nav({ theme = "black", className = "" }) {
               showNavBackground || burgerActive ? "text-black" : themeClasses
             }`}
           >
-            <LogoLink logoColor={showNavBackground ? "black" : "white"} />
+            <LogoLink
+              logoColor={showNavBackground || burgerActive ? "black" : "white"}
+            />
           </div>
 
           <div className="flex-1 hidden sm:flex  items-center gap-16 justify-end">

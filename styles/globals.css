@@ -25,9 +25,9 @@ svg {
 
 .first-container {
     @apply py-10;
-    @apply md:py-16;
-    @apply lg:py-20;
-    @apply xl:py-24;
+    @apply md:py-12;
+    @apply lg:py-16;
+    @apply xl:py-20;
 }
 
 .title-big {

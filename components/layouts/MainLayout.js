@@ -23,7 +23,7 @@ export default function MainLayout({
       </Head>
       <div
         className={`min-h-screen flex flex-col ${
-          paddingTop ? "pt-[72px] sm:pt-[88px]" : ""
+          paddingTop ? "pt-[105px] sm:pt-[115px]" : ""
         } ${className}`}
         {...rest}
       >

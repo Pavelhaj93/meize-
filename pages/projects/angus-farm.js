@@ -45,9 +45,51 @@ export default function AngusFarm({ project, prevProject, nextProject }) {
         </Container>
 
         <Container className="md:px-14 px-4">
-          {project.videos.vimeoId && (
+          {project.videos.vimeoId1 && (
             <Vimeo
-              video={project.videos.vimeoId}
+              video={project.videos.vimeoId1}
+              playsInline={true}
+              muted={true}
+              responsive={true}
+              loop={true}
+              autoplay={true}
+              className="mx-auto"
+              onError={(err) => console.log(err)}
+            />
+          )}
+
+          <div className="w-full flex gap-10 my-10">
+            {project.gifs.slice(0, 2).map((gif) => (
+              <div key={gif.src}>
+                <img src={gif.src} alt="Gif" />
+              </div>
+            ))}
+          </div>
+
+          {project.videos.vimeoId2 && (
+            <Vimeo
+              video={project.videos.vimeoId2}
+              playsInline={true}
+              muted={true}
+              responsive={true}
+              loop={true}
+              autoplay={true}
+              className="mx-auto"
+              onError={(err) => console.log(err)}
+            />
+          )}
+
+          <div className="w-full flex gap-10 my-10">
+            {project.gifs.slice(2, 4).map((gif) => (
+              <div key={gif.src}>
+                <img src={gif.src} alt="Gif" />
+              </div>
+            ))}
+          </div>
+
+          {project.videos.vimeoId3 && (
+            <Vimeo
+              video={project.videos.vimeoId3}
               playsInline={true}
               muted={true}
               responsive={true}
