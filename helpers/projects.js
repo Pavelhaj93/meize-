@@ -211,7 +211,7 @@ export const getAllProjectsForDynamicRoutes = () => {
 };
 
 export const getAllProjects = () => {
-  return project;
+  return projects;
 };
 
 export const getFeaturedProjects = () => {
