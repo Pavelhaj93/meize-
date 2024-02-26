@@ -201,13 +201,17 @@ const projects = [
   },
 ];
 
-export const getAllProjects = () => {
+export const getAllProjectsForDynamicRoutes = () => {
   return projects.filter(
     (project) =>
       project.slug !== "angus-farm" &&
       project.slug !== "were-next" &&
       project.slug !== "sawsane"
   );
+};
+
+export const getAllProjects = () => {
+  return project;
 };
 
 export const getFeaturedProjects = () => {

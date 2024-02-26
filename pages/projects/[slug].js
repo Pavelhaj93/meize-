@@ -6,7 +6,7 @@ import ScreenGrabs from "../../components/ScreenGrabs";
 import MainLayout from "../../components/layouts/MainLayout";
 import { getLocaleStrings } from "../../helpers/languages";
 import {
-  getAllProjects,
+  getAllProjectsForDynamicRoutes,
   getProjectById,
   getProjectBySlug,
 } from "../../helpers/projects";
@@ -14,7 +14,7 @@ import {
 export async function getStaticPaths() {
   let paths = [];
 
-  getAllProjects().forEach(({ slug }) => {
+  getAllProjectsForDynamicRoutes().forEach(({ slug }) => {
     for (const locale of ["cs", "en"]) {
       paths.push({
         params: {
