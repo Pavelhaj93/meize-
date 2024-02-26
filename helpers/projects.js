@@ -202,7 +202,12 @@ const projects = [
 ];
 
 export const getAllProjects = () => {
-  return projects;
+  return projects.filter(
+    (project) =>
+      project.slug !== "angus-farm" &&
+      project.slug !== "were-next" &&
+      project.slug !== "sawsane"
+  );
 };
 
 export const getFeaturedProjects = () => {

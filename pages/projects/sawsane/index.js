@@ -1,12 +1,12 @@
 // angus-farm.js
 
 import { useRouter } from "next/router";
-import Container from "../../components/Container";
-import ProjectButtons from "../../components/ProjectButtons";
-import ScreenGrabs from "../../components/ScreenGrabs";
-import MainLayout from "../../components/layouts/MainLayout";
-import { getLocaleStrings } from "../../helpers/languages";
-import { getProjectById, getProjectBySlug } from "../../helpers/projects"; // Import the necessary function
+import Container from "../../../components/Container";
+import ProjectButtons from "../../../components/ProjectButtons";
+import ScreenGrabs from "../../../components/ScreenGrabs";
+import MainLayout from "../../../components/layouts/MainLayout";
+import { getLocaleStrings } from "../../../helpers/languages";
+import { getProjectById, getProjectBySlug } from "../../../helpers/projects";
 
 export async function getStaticProps() {
   // Fetch the "angus-farm" project directly by its ID or any unique identifier
