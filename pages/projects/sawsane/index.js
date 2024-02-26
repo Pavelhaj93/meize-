@@ -44,7 +44,7 @@ export default function AngusFarm({ project, prevProject, nextProject }) {
         </Container>
 
         <Container className="md:px-14 px-4 mx-0 my-auto flex flex-col justify-center items-center">
-          <div className="w-full h-[500px]">
+          <div className="w-full h-[500px] 2xl:h-[700px]">
             <iframe
               height="100%"
               width="100%"

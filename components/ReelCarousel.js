@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import CarouselDots from "./CarouselDots";
 
@@ -32,10 +31,11 @@ export default function ReelCarousel({ reels, className = "", ...rest }) {
             }`}
             key={`Image: ${key}`}
           >
-            {/*<Image src={reel.thumbnail}*/}
-            {/*       alt={reel.title}*/}
-            {/*       className="absolute top-0 left-0 w-full h-full object-cover object-center"*/}
-            {/*/>*/}
+            {/* <Image
+              src={reel.thumbnail}
+              alt={reel.title}
+              className="absolute top-0 left-0 w-full h-full object-cover object-center"
+            /> */}
             <video
               src={reel.videos.short}
               className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
