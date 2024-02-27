@@ -10,6 +10,7 @@ export default function Document() {
         <meta property="og:image" content="/icons/kelimek.png " />
         <meta property="og:image:width" content="200" />
         <meta property="og:image:height" content="200" />
+        <meta property="og:title" content="The test" />
 
         <link
           href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Mulish:wght@400;900&family=Work+Sans:wght@800;900&display=swap"
