@@ -3,12 +3,14 @@ import useScrollTo from "react-spring-scroll-to-hook";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { Fragment, useEffect } from "react";
+import { getLocaleStrings } from "../helpers/languages";
 import "../styles/globals.css";
 
 const baseUrl = "https://www.meize.com";
 
 function MyApp({ Component, pageProps }) {
   const { scrollTo } = useScrollTo();
+
   const { locales, locale, defaultLocale, asPath } = useRouter();
   const ogUrl = (
     locale === defaultLocale
@@ -17,6 +19,7 @@ function MyApp({ Component, pageProps }) {
   ).split("?")[0];
 
   const router = useRouter();
+  const lang = getLocaleStrings(useRouter().locale, "og");
 
   useEffect(() => {
     router.events.on("routeChangeStart", (url, { shallow }) => {
@@ -39,6 +42,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:image" content="/favicon/kelimek.ico " />
         <meta property="og:image:width" content="200" />
         <meta property="og:image:height" content="200" />
+        <meta property="og:title" content={lang.title} />
 
         <link rel="canonical" href={ogUrl} />
         {locales.map((lang) => {
