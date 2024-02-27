@@ -38,6 +38,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={ogUrl} />
         <meta property="og:image" content="/icons/kelimek.png " />
+        <meta property="og:title" content="The test" />
 
         <link rel="canonical" href={ogUrl} />
 
