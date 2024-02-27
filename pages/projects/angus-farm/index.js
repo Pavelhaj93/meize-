@@ -7,6 +7,7 @@ import ProjectButtons from "../../../components/ProjectButtons";
 import ScreenGrabs from "../../../components/ScreenGrabs";
 import MainLayout from "../../../components/layouts/MainLayout";
 
+import GifGrid from "../../../components/GifGrid";
 import { getLocaleStrings } from "../../../helpers/languages";
 import { getProjectById, getProjectBySlug } from "../../../helpers/projects";
 
@@ -59,13 +60,7 @@ export default function AngusFarm({ project, prevProject, nextProject }) {
             />
           )}
 
-          <div className="w-full flex gap-10 my-10">
-            {project.gifs.slice(0, 2).map((gif) => (
-              <div key={gif.src}>
-                <img src={gif.src} alt="Gif" />
-              </div>
-            ))}
-          </div>
+          <GifGrid gifs={project.gifs} bottom={0} top={2} />
 
           {project.videos.vimeoId2 && (
             <Vimeo
@@ -80,13 +75,7 @@ export default function AngusFarm({ project, prevProject, nextProject }) {
             />
           )}
 
-          <div className="w-full flex gap-10 my-10">
-            {project.gifs.slice(2, 4).map((gif) => (
-              <div key={gif.src}>
-                <img src={gif.src} alt="Gif" />
-              </div>
-            ))}
-          </div>
+          <GifGrid gifs={project.gifs} bottom={2} top={4} revert />
 
           {project.videos.vimeoId3 && (
             <Vimeo

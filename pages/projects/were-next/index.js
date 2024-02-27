@@ -24,6 +24,23 @@ export async function getStaticProps() {
   };
 }
 
+const GridComponent = ({ gifs }) => {
+  return (
+    <div className="flex flex-col sm:grid sm:grid-cols-2 gap-2 sm:gap-5 lg:gap-10">
+      {gifs.map((gif, index) => (
+        <div
+          key={gif.src}
+          className={`relative ${index === 1 ? "sm:mt-20" : ""} ${
+            index === 2 ? "sm:-mt-20" : ""
+          }`}
+        >
+          <img src={gif.src} alt="Gif" />
+        </div>
+      ))}
+    </div>
+  );
+};
+
 export default function AngusFarm({ project, prevProject, nextProject }) {
   const lang = getLocaleStrings(useRouter().locale);
 
@@ -44,9 +61,9 @@ export default function AngusFarm({ project, prevProject, nextProject }) {
           </p>
         </Container>
 
-        <Container className="md:px-14 px-4 flex flex-col gap-10">
+        <Container className="md:px-14 px-4 gap-5 sm:gap-10">
           {project.videos.vimeoId && (
-            <div className="w-auto md:w-[550px] 2xl:w-[800px] mx-auto my-0">
+            <div className="w-[320px] md:w-[550px] 2xl:w-[800px] mx-auto my-0 mb-10">
               <Vimeo
                 video={project.videos.vimeoId}
                 playsInline={true}
@@ -60,16 +77,7 @@ export default function AngusFarm({ project, prevProject, nextProject }) {
             </div>
           )}
 
-          <div className="w-full flex flex-col gap-10">
-            {project.gifs.map((gif) => (
-              <div
-                className="w-auto mx-auto md:w-[550px] 2xl:w-[800px]"
-                key={gif.src}
-              >
-                <img src={gif.src} alt="Gif" />
-              </div>
-            ))}
-          </div>
+          <GridComponent gifs={project.gifs} />
 
           <div className="pt-20 gap-12 flex flex-col">
             <ScreenGrabs images={project.screens} />
