@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content={ogUrl} />
-        <meta property="og:image" content="/favicon/kelimek.ico " />
+        <meta property="og:image" content="/icons/kelimek.png " />
 
         <link rel="canonical" href={ogUrl} />
 

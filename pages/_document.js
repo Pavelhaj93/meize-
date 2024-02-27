@@ -7,7 +7,6 @@ export default function Document() {
         <link rel="shortcut icon" href="/favicon/kelimek.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <meta property="og:image" content="/icons/arrow-left.svg" />
 
         <link
           href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Mulish:wght@400;900&family=Work+Sans:wght@800;900&display=swap"
