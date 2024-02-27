@@ -97,7 +97,7 @@ const projects = [
     slug: "sawsane",
     thumbnail: imageSawsane,
     videos: {
-      short: null,
+      short: "/projects/sawsane/sawsane_short.mp4",
       full: null,
     },
     categories: ["creative", "commercial"],
