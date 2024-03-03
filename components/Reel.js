@@ -20,7 +20,7 @@ export default function Reel({ reels, className = "", ...rest }) {
 
   const resetInterval = useCallback(() => {
     clearInterval(videoInterval);
-    videoInterval = setInterval(handleIndexChange, 6000);
+    videoInterval = setInterval(handleIndexChange, 5950);
   }, [handleIndexChange]);
 
   useEffect(() => {
@@ -28,17 +28,18 @@ export default function Reel({ reels, className = "", ...rest }) {
     return () => clearInterval(videoInterval);
   }, [resetInterval]);
 
+  let backgroundImage = "";
+  if (activeIndex === 0) {
+    backgroundImage = 'bg-[url("/projects/anna-von-lipa/thumbnail.jpg")]';
+  } else if (activeIndex === 1) {
+    backgroundImage = 'bg-[url("/projects/trezor/thumbnail.jpg")]';
+  } else if (activeIndex === 2) {
+    backgroundImage = 'bg-[url("/projects/angus-farm/thumbnail.jpg")]';
+  }
+
   return (
     <section
-      className={`relative w-full bg-cover ${
-        activeIndex === 0
-          ? 'bg-[url("/projects/anna-von-lipa/thumbnail.jpg")]'
-          : activeIndex === 1
-          ? 'bg-[url("/projects/trezor/reelScreenshot.png")]'
-          : activeIndex === 2
-          ? 'bg-[url("/projects/angus-farm/reelScreenshot.png")]'
-          : ""
-      } pt-[56.25%] ${className}`}
+      className={`relative w-full bg-cover ${backgroundImage} pt-[56.25%] ${className}`}
       {...rest}
     >
       <video
@@ -51,7 +52,7 @@ export default function Reel({ reels, className = "", ...rest }) {
       />
 
       <Container className="absolute left-1/2 -translate-x-1/2 top-3/4 flex items-center justify-center gap-24">
-        {reels.map(({ title, slug, client, href }, key) => {
+        {reels.map(({ title, slug, client }, key) => {
           return (
             <Link key={key} href={`/projects/${slug}`}>
               <a
