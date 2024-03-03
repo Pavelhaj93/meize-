@@ -1,6 +1,7 @@
 // angus-farm.js
 
 import Vimeo from "@u-wave/react-vimeo";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import Container from "../../../components/Container";
 import ProjectButtons from "../../../components/ProjectButtons";
@@ -30,11 +31,16 @@ const GridComponent = ({ gifs }) => {
       {gifs.map((gif, index) => (
         <div
           key={gif.src}
-          className={`relative ${index === 1 ? "sm:mt-20" : ""} ${
-            index === 2 ? "sm:-mt-20" : ""
+          className={`relative ${index === 1 ? "sm:mt-40" : ""} ${
+            index === 2 ? "sm:-mt-40" : ""
           }`}
         >
-          <img src={gif.src} alt="Gif" />
+          <Image
+            src={gif.src}
+            alt="Gif"
+            width={gif.width}
+            height={gif.height}
+          />
         </div>
       ))}
     </div>

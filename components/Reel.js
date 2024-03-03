@@ -20,7 +20,7 @@ export default function Reel({ reels, className = "", ...rest }) {
 
   const resetInterval = useCallback(() => {
     clearInterval(videoInterval);
-    videoInterval = setInterval(handleIndexChange, 5950);
+    videoInterval = setInterval(handleIndexChange, 6000);
   }, [handleIndexChange]);
 
   useEffect(() => {

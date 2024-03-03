@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const GifGrid = ({ gifs, bottom, top, revert }) => {
   return (
     <div className="w-full flex flex-col sm:flex-row gap-2 sm:gap-5 lg:gap-10 my-2 sm:my-5 lg:my-10 justify-between">
@@ -14,7 +16,12 @@ const GifGrid = ({ gifs, bottom, top, revert }) => {
               : ""
           } `}
         >
-          <img src={gif.src} alt="Gif" />
+          <Image
+            src={gif.src}
+            alt="Gif"
+            width={gif.width}
+            height={gif.height}
+          />
         </div>
       ))}
     </div>
