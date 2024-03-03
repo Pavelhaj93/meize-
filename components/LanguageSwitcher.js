@@ -1,42 +1,36 @@
 import Link from "next/link";
-import {useState} from "react";
-import {getLocaleStrings} from "../helpers/languages";
-import {useRouter} from "next/router";
-import {setLocaleCookies} from "../helpers/cookies";
-import SvgFlag from "./svg/SvgFlag";
+import { getLocaleStrings } from "../helpers/languages";
+import { useRouter } from "next/router";
+import { setLocaleCookies } from "../helpers/cookies";
 
-export default function LanguageSwitcher({className = '', ...rest}) {
-    const {locale, locales, asPath} = useRouter();
-    const lang = getLocaleStrings(locale);
-    const [active, setActive] = useState(false);
+export default function LanguageSwitcher({ className = "", ...rest }) {
+  const { locale, locales, asPath } = useRouter();
+  const lang = getLocaleStrings(locale);
 
-    const handleLanguageClick = () => setActive(!active);
-
-    return (
-        <div
-            className={`relative cursor-pointer transition-all uppercase font-bold ${active ? 'text-white' : ''} ${className}`}
-            onClick={handleLanguageClick}
-            onMouseEnter={handleLanguageClick}
-            onMouseLeave={() => setActive(false)}
-        >
-            <span className="relative z-10">{lang.common.language}</span>
-            <div
-                className={`absolute -top-[10px] -right-[10px] min-w-[calc(100%+20px)] bg-black p-2 text-right transition-all duration-200 ${active ? 'translate-y-0 opacity-100 pointer-events-auto pt-[40px]' : 'opacity-0 pointer-events-none translate-y-4'}`}>
-                {locales.map((localeItem, key) => {
-                    return (
-                        <Link href={asPath} locale={localeItem} key={`NavLang: ${localeItem}`}>
-                            <a className="flex items-center gap-2 text-white hover:text-white/60 transition-colors duration-200"
-                               onClick={() => setLocaleCookies(localeItem)}
-                            >
-                                <span className="w-3.5 rounded-full overflow-hidden">
-                                    <SvgFlag country={localeItem}/>
-                                </span>
-                                {lang.languages[localeItem]}
-                            </a>
-                        </Link>
-                    )
-                })}
-            </div>
-        </div>
-    )
+  return (
+    <div
+      className={`relative cursor-pointer transition-all uppercase font-bold 
+       `}
+    >
+      {locales.map((localeItem, index) => {
+        return (
+          <Link
+            href={asPath}
+            locale={localeItem}
+            key={`NavLang: ${localeItem}`}
+          >
+            <a
+              className={`${className}`}
+              onClick={() => setLocaleCookies(localeItem)}
+            >
+              <span className="hover:text-primary transition-colors duration-200">
+                {lang.common[localeItem]}
+              </span>
+              {index < 1 && <span className="mx-1"> / </span>}
+            </a>
+          </Link>
+        );
+      })}
+    </div>
+  );
 }

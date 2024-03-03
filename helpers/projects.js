@@ -1,9 +1,8 @@
 import imageAngusFarm from "../public/projects/angus-farm/thumbnail.jpg";
 import imageAnnaVonLipa from "../public/projects/anna-von-lipa/thumbnail.jpg";
-import imageKlausTimber from "../public/projects/klaus-timber/thumbnail.jpg";
-import imageWereNext from "../public/projects/were-next/thumbnail.jpg";
-import imageTrezor from "../public/projects/trezor/thumbnail.jpg";
 import imageSawsane from "../public/projects/sawsane/thumbnail.jpg";
+import imageTrezor from "../public/projects/trezor/thumbnail.jpg";
+import imageWereNext from "../public/projects/were-next/thumbnail.jpg";
 
 import imageAnnaVonLipaScreen01 from "../public/projects/anna-von-lipa/screens/01.jpg";
 import imageAnnaVonLipaScreen02 from "../public/projects/anna-von-lipa/screens/02.jpg";
@@ -59,187 +58,196 @@ import imageSawsaneScreen07 from "../public/projects/sawsane/screens/07.jpg";
 import imageSawsaneScreen08 from "../public/projects/sawsane/screens/08.jpg";
 import imageSawsaneScreen09 from "../public/projects/sawsane/screens/09.jpg";
 
+import gif1AF from "../public/projects/angus-farm/gifs/gif1-AF.gif";
+import gif2AF from "../public/projects/angus-farm/gifs/gif2-AF.gif";
+import gif3AF from "../public/projects/angus-farm/gifs/gif3-AF.gif";
+import gif4AF from "../public/projects/angus-farm/gifs/gif4-AF.gif";
+
+import gif1 from "../public/projects/were-next/gifs/gif1.gif";
+import gif2 from "../public/projects/were-next/gifs/gif2.gif";
+import gif3 from "../public/projects/were-next/gifs/gif3.gif";
+
 const projects = [
-    {
-        "id": 1,
-        "title": "Anna von Lipa",
-        "slug": "anna-von-lipa",
-        "thumbnail": imageAnnaVonLipa,
-        "videos": {
-            "short": "/projects/anna-von-lipa/anna-von-lipa_short.mp4",
-            "full": "/projects/anna-von-lipa/anna-von-lipa_full.mp4"
-        },
-        "categories": [
-            "creative"
-        ],
-        "screens": [
-            imageAnnaVonLipaScreen01,
-            imageAnnaVonLipaScreen02,
-            imageAnnaVonLipaScreen03,
-            imageAnnaVonLipaScreen04,
-            imageAnnaVonLipaScreen05,
-            imageAnnaVonLipaScreen06,
-            imageAnnaVonLipaScreen07,
-            imageAnnaVonLipaScreen08,
-            imageAnnaVonLipaScreen09
-        ]
+  {
+    id: 1,
+    title: "Anna von Lipa",
+    slug: "anna-von-lipa",
+    thumbnail: imageAnnaVonLipa,
+    videos: {
+      short: "/projects/anna-von-lipa/anna-von-lipa_short.mp4",
+      full: "/projects/anna-von-lipa/anna-von-lipa_full.mp4",
+      vimeoId: "891018959",
     },
-    {
-        "id": 2,
-        "title": "Sawsane",
-        "slug": "sawsane",
-        "thumbnail": imageSawsane,
-        "videos": {
-            "short": null,
-            "full": null
-        },
-        "categories": [
-            "creative",
-            "commercial"
-        ],
-        "screens": [
-            imageSawsaneScreen01,
-            imageSawsaneScreen02,
-            imageSawsaneScreen03,
-            imageSawsaneScreen04,
-            imageSawsaneScreen05,
-            imageSawsaneScreen06,
-            imageSawsaneScreen07,
-            imageSawsaneScreen08,
-            imageSawsaneScreen09
-        ]
+    categories: ["creative"],
+    screens: [
+      imageAnnaVonLipaScreen01,
+      imageAnnaVonLipaScreen02,
+      imageAnnaVonLipaScreen03,
+      imageAnnaVonLipaScreen04,
+      imageAnnaVonLipaScreen05,
+      imageAnnaVonLipaScreen06,
+      imageAnnaVonLipaScreen07,
+      imageAnnaVonLipaScreen08,
+      imageAnnaVonLipaScreen09,
+    ],
+  },
+  {
+    id: 2,
+    title: "Sawsane",
+    slug: "sawsane",
+    thumbnail: imageSawsane,
+    videos: {
+      short: "/projects/sawsane/sawsane_short.mp4",
+      full: null,
     },
-    {
-        "id": 3,
-        "title": "Trezor",
-        "slug": "trezor",
-        "thumbnail": imageTrezor,
-        "videos": {
-            "short": "/projects/trezor/trezor_short.mp4",
-            "full": "/projects/trezor/trezor_full.mp4"
-        },
-        "categories": [
-            "production",
-            "postproduction"
-        ],
-        "screens": [
-            imageTrezorScreen01,
-            imageTrezorScreen02,
-            imageTrezorScreen03
-        ]
+    categories: ["creative", "commercial"],
+    screens: [
+      imageSawsaneScreen01,
+      imageSawsaneScreen02,
+      imageSawsaneScreen03,
+      imageSawsaneScreen04,
+      imageSawsaneScreen05,
+      imageSawsaneScreen06,
+      imageSawsaneScreen07,
+      imageSawsaneScreen08,
+      imageSawsaneScreen09,
+    ],
+  },
+  {
+    id: 3,
+    title: "Trezor",
+    slug: "trezor",
+    thumbnail: imageTrezor,
+    videos: {
+      short: "/projects/trezor/trezor_short.mp4",
+      full: "/projects/trezor/trezor_full.mp4",
+      vimeoId: "892186319",
     },
-    {
-        "id": 4,
-        "title": "Angus Farm",
-        "slug": "angus-farm",
-        "thumbnail": imageAngusFarm,
-        "videos": {
-            "short": "/projects/angus-farm/angus-farm_short.mp4",
-            "full": "/projects/angus-farm/angus-farm_full.mp4"
-        },
-        "categories": [
-            "creative",
-            "commercial"
-        ],
-        "screens": [
-            imageAngusFarmScreen01,
-            imageAngusFarmScreen02,
-            imageAngusFarmScreen03,
-            imageAngusFarmScreen04,
-            imageAngusFarmScreen05,
-            imageAngusFarmScreen06,
-            imageAngusFarmScreen07,
-            imageAngusFarmScreen08,
-            imageAngusFarmScreen09
-        ]
+    categories: ["production", "postproduction"],
+    screens: [imageTrezorScreen01, imageTrezorScreen02, imageTrezorScreen03],
+  },
+  {
+    id: 4,
+    title: "Angus Farm",
+    slug: "angus-farm",
+    thumbnail: imageAngusFarm,
+    videos: {
+      short: "/projects/angus-farm/angus-farm_short.mp4",
+      full: "/projects/angus-farm/angus-farm_full.mp4",
+      vimeoId1: "891063117",
+      vimeoId2: "887333055",
+      vimeoId3: "891028950",
     },
-    {
-        "id": 5,
-        "title": "Klaus Timber",
-        "slug": "klaus-timber",
-        "thumbnail": imageKlausTimber,
-        "videos": {
-            "short": "/projects/klaus-timber/klaus-timber_short.mp4",
-            "full": "/projects/klaus-timber/klaus-timber_full.mp4"
-        },
-        "categories": [
-            "commercial"
-        ],
-        "screens": [
-            imageKlausTimberScreen01,
-            imageKlausTimberScreen02,
-            imageKlausTimberScreen03,
-            imageKlausTimberScreen04,
-            imageKlausTimberScreen05,
-            imageKlausTimberScreen06,
-            imageKlausTimberScreen07,
-            imageKlausTimberScreen08,
-            imageKlausTimberScreen09
-        ]
+    categories: ["creative", "commercial"],
+    screens: [
+      imageAngusFarmScreen01,
+      imageAngusFarmScreen02,
+      imageAngusFarmScreen03,
+      imageAngusFarmScreen04,
+      imageAngusFarmScreen05,
+      imageAngusFarmScreen06,
+      imageAngusFarmScreen07,
+      imageAngusFarmScreen08,
+      imageAngusFarmScreen09,
+    ],
+    gifs: [gif1AF, gif2AF, gif3AF, gif4AF],
+  },
+  {
+    id: 5,
+    title: "Klaus Timber",
+    slug: "klaus-timber",
+    thumbnail: imageKlausTimberScreen05,
+    videos: {
+      short: "/projects/klaus-timber/klaus-timber_short.mp4",
+      full: "/projects/klaus-timber/klaus-timber_full.mp4",
+      vimeoId: "892875702",
     },
-    {
-        "id": 6,
-        "title": "We're Next",
-        "slug": "were-next",
-        "thumbnail": imageWereNext,
-        "videos": {
-            "short": "/projects/were-next/were-next_short.mp4",
-            "full": "/projects/were-next/were-next_full.mp4"
-        },
-        "categories": [
-            "production",
-            "postproduction"
-        ],
-        "screens": [
-            imageWereNextScreen01,
-            imageWereNextScreen02,
-            imageWereNextScreen03,
-            imageWereNextScreen04,
-            imageWereNextScreen05,
-            imageWereNextScreen06,
-            imageWereNextScreen07,
-            imageWereNextScreen08,
-            imageWereNextScreen09
-        ]
-    }
+    categories: ["commercial"],
+    screens: [
+      imageKlausTimberScreen01,
+      imageKlausTimberScreen02,
+      imageKlausTimberScreen03,
+      imageKlausTimberScreen04,
+      imageKlausTimberScreen05,
+      imageKlausTimberScreen06,
+      imageKlausTimberScreen07,
+      imageKlausTimberScreen08,
+      imageKlausTimberScreen09,
+    ],
+  },
+  {
+    id: 6,
+    title: "We're Next",
+    slug: "were-next",
+    thumbnail: imageWereNext,
+    videos: {
+      short: "/projects/were-next/were-next_short.mp4",
+      full: "/projects/were-next/were-next_full.mp4",
+      vimeoId: "892197628",
+    },
+    categories: ["production", "postproduction"],
+    screens: [
+      imageWereNextScreen01,
+      imageWereNextScreen02,
+      imageWereNextScreen03,
+      imageWereNextScreen04,
+      imageWereNextScreen05,
+      imageWereNextScreen06,
+      imageWereNextScreen07,
+      imageWereNextScreen08,
+      imageWereNextScreen09,
+    ],
+    gifs: [gif1, gif2, gif3],
+  },
 ];
 
+export const getAllProjectsForDynamicRoutes = () => {
+  return projects.filter(
+    (project) =>
+      project.slug !== "angus-farm" &&
+      project.slug !== "were-next" &&
+      project.slug !== "sawsane"
+  );
+};
+
 export const getAllProjects = () => {
-    return projects.reverse();
-}
+  return projects;
+};
 
 export const getFeaturedProjects = () => {
-    return projects.slice(0, 3);
-    return getProjectByIds([4, 6, 16, 3, 17, 2]);
-}
+  return projects.slice(0, 3);
+  return getProjectByIds([4, 6, 16, 3, 17, 2]);
+};
 
 export const getProjectsByCategory = (category) => {
-    return projects.filter((project) => project.categories.includes(category)).reverse();
+  return projects
+    .filter((project) => project.categories.includes(category))
+    .reverse();
 };
 
 export const getProjectById = (id) => {
-    return projects.find((project) => project.id === id);
-}
+  return projects.find((project) => project.id === id);
+};
 
 export const getProjectByIds = (ids) => {
-    return ids.map((id) => getProjectById(id));
-}
+  return ids.map((id) => getProjectById(id));
+};
 
 export const getProjectBySlug = (slug) => {
-    return projects.find((project) => project.slug === slug);
-}
+  return projects.find((project) => project.slug === slug);
+};
 
 export const getProjectsInReel = () => {
-    return getProjectByIds([1, 3, 4]);
-}
+  return getProjectByIds([1, 3, 4]);
+};
 export const getAllCategories = () => {
-    const categories = [];
-    projects.forEach((project) => {
-        project.categories.forEach((category) => {
-            if (!categories.includes(category)) {
-                categories.push(category);
-            }
-        });
+  const categories = [];
+  projects.forEach((project) => {
+    project.categories.forEach((category) => {
+      if (!categories.includes(category)) {
+        categories.push(category);
+      }
     });
-    return categories;
+  });
+  return categories;
 };
