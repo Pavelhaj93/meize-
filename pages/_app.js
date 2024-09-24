@@ -1,5 +1,4 @@
 import useScrollTo from "react-spring-scroll-to-hook";
-
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { Fragment, useEffect } from "react";
