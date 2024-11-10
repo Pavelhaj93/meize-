@@ -79,7 +79,7 @@ export default function WeddingVideos() {
           </p>
         </Container>
 
-        <section className="px-4 sm:px-6 lg:px-8 py-10">
+        <section className="px-0 md:px-4 lg:px-8 py-10">
           <Container className="mx-auto">
             <div className="flex flex-col gap-4 md:gap-8 lg:gap-16">
               {videos.map((video, index) => (
