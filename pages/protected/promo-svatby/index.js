@@ -55,7 +55,7 @@ export default function WeddingVideos() {
       {/* TODO: finish the metadata */}
 
       <MainLayout>
-        <Container className="text-center relative py-20 px-4 sm:px-6 lg:px-8">
+        <Container className="text-center relative py-4 md:py-8 lg:py-20 px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-12">
             {lang.title1}
           </h1>
