@@ -101,7 +101,7 @@ export default function WeddingVideos() {
                     video={video.src}
                     playsInline={true}
                     responsive={true}
-                    className="w-full lg:w-3/4 h-full"
+                    className="w-full lg:w-3/4 h-full rounded-md md:rounded-xl lg:rounded-3xl overflow-hidden"
                     crossorigin={true}
                   />
                 </div>
