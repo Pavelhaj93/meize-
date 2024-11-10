@@ -13,7 +13,7 @@ export default function Contact() {
       <Container className="first-container">
         <section className="flex flex-col gap-8">
           <header>
-            <h1 className="title-big font-[1000]">{lang.headline}</h1>
+            <h1 className="title-big font-extrabold">{lang.headline}</h1>
           </header>
         </section>
       </Container>

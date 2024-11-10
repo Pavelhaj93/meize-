@@ -2,7 +2,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { getLocaleStrings } from "../../helpers/languages";
 import { generateTitle } from "../../helpers/meta";
-import Footer from "../Footer";
 import Nav from "../Nav";
 
 export default function MainLayout({
@@ -29,7 +28,6 @@ export default function MainLayout({
       >
         <Nav theme={theme} />
         <main className="flex-1">{children}</main>
-        <Footer />
       </div>
     </>
   );
